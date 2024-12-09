@@ -1,0 +1,13 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\b013728n\\documents\\unreal projects\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\toolsdevforengines.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\b013728n\\documents\\unreal projects\\toolsdevforengines\\intermediate\\build\\win64\\x64\\toolsdevforengineseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\b013728n\\documents\\unreal projects\\toolsdevforengines\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\toolsdevforengines\\definitions.toolsdevforengines.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
