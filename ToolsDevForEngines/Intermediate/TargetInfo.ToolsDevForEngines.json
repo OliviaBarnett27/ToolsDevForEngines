@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "ToolsDevForEngines",
+			"Path": "..\\Source\\ToolsDevForEngines.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "ToolsDevForEnginesEditor",
+			"Path": "..\\Source\\ToolsDevForEnginesEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}
