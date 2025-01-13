@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\private\\subsystem_weatherselector.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\toolsdevforengineseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\toolsdevforengines\\definitions.toolsdevforengines.h",
+            "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\subsystem_weatherselector.h",
+            "c:\\program files\\microsoft visual studio\\2022\\professional\\vc\\tools\\msvc\\14.40.33807\\include\\string",
+            "c:\\program files\\microsoft visual studio\\2022\\professional\\vc\\tools\\msvc\\14.40.33807\\include\\xstring",
+            "c:\\program files\\microsoft visual studio\\2022\\professional\\vc\\tools\\msvc\\14.40.33807\\include\\__msvc_sanitizer_annotate_container.hpp",
+            "c:\\program files\\microsoft visual studio\\2022\\professional\\vc\\tools\\msvc\\14.40.33807\\include\\xpolymorphic_allocator.h",
+            "c:\\program files\\microsoft visual studio\\2022\\professional\\vc\\tools\\msvc\\14.40.33807\\include\\cctype",
+            "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\subsystem_weatherselector.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

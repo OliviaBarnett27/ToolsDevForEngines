@@ -54,5 +54,17 @@
     <ClInclude Include="..\..\Source\ToolsDevForEngines\ToolsDevForEnginesGameMode.h">
       <Filter>Source\ToolsDevForEngines</Filter>
     </ClInclude>
+    <Filter Include="Source\ToolsDevForEngines\Private">
+      <UniqueIdentifier>{3C10C283-0ACD-3183-8A24-5DFD16EB67C0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\Subsystem_WeatherSelector.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
+    <Filter Include="Source\ToolsDevForEngines\Public">
+      <UniqueIdentifier>{22E35A5B-3AC3-3B72-ABE0-70A1CE704E82}</UniqueIdentifier>
+    </Filter>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\Subsystem_WeatherSelector.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

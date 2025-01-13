@@ -1,6 +1,8 @@
 /I "."
+/I "C:\Users\b013728n\Documents\GitHub\ToolsDevForEngines\ToolsDevForEngines\Source\ToolsDevForEngines\Private"
 /I "C:\Users\b013728n\Documents\GitHub\ToolsDevForEngines\ToolsDevForEngines\Intermediate\Build\Win64\UnrealEditor\Inc\ToolsDevForEngines\UHT"
 /I "C:\Users\b013728n\Documents\GitHub\ToolsDevForEngines\ToolsDevForEngines\Source"
+/I "C:\Users\b013728n\Documents\GitHub\ToolsDevForEngines\ToolsDevForEngines\Source\ToolsDevForEngines\Public"
 /I "Runtime\Core\Public"
 /I "Runtime\Core\Internal"
 /I "Runtime\TraceLog\Public"
