@@ -15,9 +15,9 @@ struct FUserInputData
 
 	//variables
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "WeatherData")
-	FString Climate = "";
+	FName Climate = "";
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "WeatherData")
-	FString Season = "";
+	FName Season = "";
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "WeatherData")
 	bool BDayNight = true;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "WeatherData")
@@ -26,6 +26,8 @@ struct FUserInputData
 	float Erraticism = 0;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "WeatherData")
 	float DayLength = 0;
+
+	
 };
 
 UCLASS()
@@ -35,9 +37,9 @@ class TOOLSDEVFORENGINES_API USubsystem_WeatherSelector : public UGameInstanceSu
 
 	public:
     UFUNCTION(BlueprintCallable, Category = "SetterFunction")
-	void SetClimate(FString UserClimate);
+	void SetClimate(FName UserClimate);
 	UFUNCTION(BlueprintCallable, Category = "SetterFunction")
-	void SetSeason(FString UserSeason);
+	void SetSeason(FName UserSeason);
 	UFUNCTION(BlueprintCallable, Category = "SetterFunction")
 	void SetDayNight (bool UserDayNight);
 	UFUNCTION(BlueprintCallable, Category = "SetterFunction")
@@ -48,9 +50,9 @@ class TOOLSDEVFORENGINES_API USubsystem_WeatherSelector : public UGameInstanceSu
 	void SetDayLength (float UserDayLength);
 
 	UFUNCTION(BlueprintCallable, Category = "GetterFunction")
-	FString GetClimate() const;
+	FName GetClimate() const;
 	UFUNCTION(BlueprintCallable, Category = "GetterFunction")
-	FString GetSeason() const;
+	FName GetSeason() const;
 	UFUNCTION(BlueprintCallable, Category = "GetterFunction")
 	bool GetDayNight() const;
 	UFUNCTION(BlueprintCallable, Category = "GetterFunction")

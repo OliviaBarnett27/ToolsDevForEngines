@@ -70,8 +70,8 @@ struct Z_Construct_UScriptStruct_FUserInputData_Statics
 		{ "ModuleRelativePath", "Public/Subsystem_WeatherSelector.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_Climate;
-	static const UECodeGen_Private::FStrPropertyParams NewProp_Season;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_Climate;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_Season;
 	static void NewProp_BDayNight_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_BDayNight;
 	static void NewProp_BAudio_SetBit(void* Obj);
@@ -85,8 +85,8 @@ struct Z_Construct_UScriptStruct_FUserInputData_Statics
 	}
 	static const UECodeGen_Private::FStructParams StructParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FUserInputData_Statics::NewProp_Climate = { "Climate", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserInputData, Climate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Climate_MetaData), NewProp_Climate_MetaData) };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FUserInputData_Statics::NewProp_Season = { "Season", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserInputData, Season), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Season_MetaData), NewProp_Season_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FUserInputData_Statics::NewProp_Climate = { "Climate", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserInputData, Climate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Climate_MetaData), NewProp_Climate_MetaData) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UScriptStruct_FUserInputData_Statics::NewProp_Season = { "Season", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserInputData, Season), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Season_MetaData), NewProp_Season_MetaData) };
 void Z_Construct_UScriptStruct_FUserInputData_Statics::NewProp_BDayNight_SetBit(void* Obj)
 {
 	((FUserInputData*)Obj)->BDayNight = 1;
@@ -183,7 +183,7 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics
 {
 	struct Subsystem_WeatherSelector_eventGetClimate_Parms
 	{
-		FString ReturnValue;
+		FName ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -191,11 +191,11 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics
 		{ "ModuleRelativePath", "Public/Subsystem_WeatherSelector.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventGetClimate_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventGetClimate_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate_Statics::NewProp_ReturnValue,
 };
@@ -215,7 +215,7 @@ DEFINE_FUNCTION(USubsystem_WeatherSelector::execGetClimate)
 {
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(FString*)Z_Param__Result=P_THIS->GetClimate();
+	*(FName*)Z_Param__Result=P_THIS->GetClimate();
 	P_NATIVE_END;
 }
 // End Class USubsystem_WeatherSelector Function GetClimate
@@ -356,7 +356,7 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics
 {
 	struct Subsystem_WeatherSelector_eventGetSeason_Parms
 	{
-		FString ReturnValue;
+		FName ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -364,11 +364,11 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics
 		{ "ModuleRelativePath", "Public/Subsystem_WeatherSelector.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventGetSeason_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventGetSeason_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason_Statics::NewProp_ReturnValue,
 };
@@ -388,7 +388,7 @@ DEFINE_FUNCTION(USubsystem_WeatherSelector::execGetSeason)
 {
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(FString*)Z_Param__Result=P_THIS->GetSeason();
+	*(FName*)Z_Param__Result=P_THIS->GetSeason();
 	P_NATIVE_END;
 }
 // End Class USubsystem_WeatherSelector Function GetSeason
@@ -446,7 +446,7 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics
 {
 	struct Subsystem_WeatherSelector_eventSetClimate_Parms
 	{
-		FString UserClimate;
+		FName UserClimate;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -454,11 +454,11 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics
 		{ "ModuleRelativePath", "Public/Subsystem_WeatherSelector.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_UserClimate;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_UserClimate;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics::NewProp_UserClimate = { "UserClimate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventSetClimate_Parms, UserClimate), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics::NewProp_UserClimate = { "UserClimate", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventSetClimate_Parms, UserClimate), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate_Statics::NewProp_UserClimate,
 };
@@ -476,7 +476,7 @@ UFunction* Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate()
 }
 DEFINE_FUNCTION(USubsystem_WeatherSelector::execSetClimate)
 {
-	P_GET_PROPERTY(FStrProperty,Z_Param_UserClimate);
+	P_GET_PROPERTY(FNameProperty,Z_Param_UserClimate);
 	P_FINISH;
 	P_NATIVE_BEGIN;
 	P_THIS->SetClimate(Z_Param_UserClimate);
@@ -623,7 +623,7 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics
 {
 	struct Subsystem_WeatherSelector_eventSetSeason_Parms
 	{
-		FString UserSeason;
+		FName UserSeason;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -631,11 +631,11 @@ struct Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics
 		{ "ModuleRelativePath", "Public/Subsystem_WeatherSelector.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FStrPropertyParams NewProp_UserSeason;
+	static const UECodeGen_Private::FNamePropertyParams NewProp_UserSeason;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics::NewProp_UserSeason = { "UserSeason", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventSetSeason_Parms, UserSeason), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FNamePropertyParams Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics::NewProp_UserSeason = { "UserSeason", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(Subsystem_WeatherSelector_eventSetSeason_Parms, UserSeason), METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason_Statics::NewProp_UserSeason,
 };
@@ -653,7 +653,7 @@ UFunction* Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason()
 }
 DEFINE_FUNCTION(USubsystem_WeatherSelector::execSetSeason)
 {
-	P_GET_PROPERTY(FStrProperty,Z_Param_UserSeason);
+	P_GET_PROPERTY(FNameProperty,Z_Param_UserSeason);
 	P_FINISH;
 	P_NATIVE_BEGIN;
 	P_THIS->SetSeason(Z_Param_UserSeason);
@@ -697,17 +697,17 @@ struct Z_Construct_UClass_USubsystem_WeatherSelector_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetAudio, "GetAudio" }, // 1037879295
-		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate, "GetClimate" }, // 2538394812
+		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetClimate, "GetClimate" }, // 2150672454
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetDayLength, "GetDayLength" }, // 1687359388
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetDayNight, "GetDayNight" }, // 4034459224
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetErraticism, "GetErraticism" }, // 3061130407
-		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason, "GetSeason" }, // 50622960
+		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_GetSeason, "GetSeason" }, // 2404227283
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetAudio, "SetAudio" }, // 2957921448
-		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate, "SetClimate" }, // 1657653698
+		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetClimate, "SetClimate" }, // 3734774652
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetDayLength, "SetDayLength" }, // 2509563473
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetDayNight, "SetDayNight" }, // 3931971352
 		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetErraticism, "SetErraticism" }, // 4232533659
-		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason, "SetSeason" }, // 3257977605
+		{ &Z_Construct_UFunction_USubsystem_WeatherSelector_SetSeason, "SetSeason" }, // 921396637
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -753,18 +753,18 @@ USubsystem_WeatherSelector::~USubsystem_WeatherSelector() {}
 // End Class USubsystem_WeatherSelector
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FUserInputData::StaticStruct, Z_Construct_UScriptStruct_FUserInputData_Statics::NewStructOps, TEXT("UserInputData"), &Z_Registration_Info_UScriptStruct_UserInputData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUserInputData), 951188697U) },
+		{ FUserInputData::StaticStruct, Z_Construct_UScriptStruct_FUserInputData_Statics::NewStructOps, TEXT("UserInputData"), &Z_Registration_Info_UScriptStruct_UserInputData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUserInputData), 3788570009U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_USubsystem_WeatherSelector, USubsystem_WeatherSelector::StaticClass, TEXT("USubsystem_WeatherSelector"), &Z_Registration_Info_UClass_USubsystem_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USubsystem_WeatherSelector), 3681082009U) },
+		{ Z_Construct_UClass_USubsystem_WeatherSelector, USubsystem_WeatherSelector::StaticClass, TEXT("USubsystem_WeatherSelector"), &Z_Registration_Info_UClass_USubsystem_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USubsystem_WeatherSelector), 3733714134U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_3231086471(TEXT("/Script/ToolsDevForEngines"),
-	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_4001379162(TEXT("/Script/ToolsDevForEngines"),
+	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_Subsystem_WeatherSelector_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

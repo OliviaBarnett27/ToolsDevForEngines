@@ -5,12 +5,12 @@
 
 
 //setter functions
-void USubsystem_WeatherSelector::SetClimate(FString UserClimate)
+void USubsystem_WeatherSelector::SetClimate(FName UserClimate)
 {
 	UserInputData.Climate = UserClimate;
 }
 
-void USubsystem_WeatherSelector::SetSeason(FString UserSeason)
+void USubsystem_WeatherSelector::SetSeason(FName UserSeason)
 {
 	UserInputData.Season = UserSeason;
 }
@@ -37,12 +37,12 @@ void USubsystem_WeatherSelector::SetDayLength(float UserDayLength)
 
 
 //getter functions
-FString USubsystem_WeatherSelector::GetClimate() const
+FName USubsystem_WeatherSelector::GetClimate() const
 {
 	return UserInputData.Climate;
 }
 
-FString USubsystem_WeatherSelector::GetSeason() const
+FName USubsystem_WeatherSelector::GetSeason() const
 {
 	return UserInputData.Season;
 }
