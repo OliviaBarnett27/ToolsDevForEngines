@@ -259,9 +259,11 @@
     <None Include="..\..\Config\DefaultGame.ini"/>
     <None Include="..\..\Config\DefaultInput.ini"/>
     <None Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.Build.cs"/>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\WeatherVolume.cpp" />
     <ClCompile Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\WeatherVolume.h" />
     <ClInclude Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.h"/>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\ToolsDevForEnginesCharacter.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
