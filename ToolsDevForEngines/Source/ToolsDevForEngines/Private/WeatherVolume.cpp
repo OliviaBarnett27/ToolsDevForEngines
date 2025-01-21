@@ -7,9 +7,17 @@
 // Sets default values
 AWeatherVolume::AWeatherVolume()
 {
-	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	_RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
+	RootComponent = _RootComponent;
+	
+	_PCGComponent = CreateDefaultSubobject<UPCGComponent>(TEXT("PCG Component"));
+	RootComponent = _RootComponent;
+	
+	_NS_RainComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Rain Component"));
+	RootComponent = _RootComponent;
 
+	_NS_SnowComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Snow Component"));
+	RootComponent = _RootComponent;
 }
 
 // Called when the game starts or when spawned
@@ -19,9 +27,4 @@ void AWeatherVolume::BeginPlay()
 	
 }
 
-// Called every frame
-void AWeatherVolume::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-}
 
