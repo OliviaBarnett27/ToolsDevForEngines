@@ -1,0 +1,11 @@
+custom volume
+
+- in c++, derived from AVolume
+- had to attach everything to brush component, which is the default rootcomponent
+
+interface
+
+- in c++
+- blueprintimplementable
+
+

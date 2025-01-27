@@ -60,6 +60,12 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\pcg\\source\\pcg\\public\\utils\\pcgextracapture.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\pcg\\intermediate\\build\\win64\\unrealeditor\\inc\\pcg\\uht\\pcgstackcontext.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\pcg\\intermediate\\build\\win64\\unrealeditor\\inc\\pcg\\uht\\pcgcomponent.generated.h",
+            "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\i_weathercalculations.h",
+            "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\i_weathercalculations.generated.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\boxcomponent.generated.h",
             "c:\\users\\b013728n\\documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\weathervolume.generated.h"
         ],
         "ImportedModules": [],

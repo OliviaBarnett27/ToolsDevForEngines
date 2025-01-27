@@ -6,6 +6,8 @@
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
 #include "PCGComponent.h"
+#include "I_WeatherCalculations.h"
+#include "Components/BoxComponent.h"
 #include "WeatherVolume.generated.h"
 
 UCLASS()
@@ -14,7 +16,6 @@ class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this actor's properties
 	AWeatherVolume();
 
 protected:
@@ -23,14 +24,11 @@ protected:
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	TObjectPtr<USceneComponent> _RootComponent;
-	
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_RainComponent;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_SnowComponent;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
-	TObjectPtr<UPCGComponent> _PCGComponent;
+private:
+	float rainSpawnRate = 0.0f;
 };
