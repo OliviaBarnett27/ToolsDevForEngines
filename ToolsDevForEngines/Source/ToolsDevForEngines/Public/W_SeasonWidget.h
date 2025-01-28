@@ -3,25 +3,44 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Editor/VREditor/Private/VREditorCameraWidgetComponent.h"
+#include "Blueprint/UserWidget.h"
 #include "W_SeasonWidget.generated.h"
 
+class UBorder;
+class UComboBoxString;
+class UButton;
+class USpacer;
+class UTextBlock;
+class UVerticalBox;
 
-UCLASS(ClassGroup=(Custom), meta=(BlueprintSpawnableComponent))
-class TOOLSDEVFORENGINES_API UW_SeasonWidget : public UVREditorCameraWidgetComponent
+//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnClearButtonClickedSignature);
+
+UCLASS(Abstract, BlueprintType)
+class TOOLSDEVFORENGINES_API UW_SeasonWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this component's properties
-	UW_SeasonWidget();
+	virtual void NativeConstruct() override;
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
+	UFUNCTION()
+	void ClearComboBoxSelection();
+	
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UVerticalBox> VerticalBox;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UTextBlock> Title;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UComboBoxString> ComboBox;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<USpacer> Spacer;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UButton> ClearButton;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UTextBlock> ButtonText;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UBorder> Border;
 
-public:
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType,
-	                           FActorComponentTickFunction* ThisTickFunction) override;
+	/*UPROPERTY(BlueprintAssignable)
+	FOnClearButtonClickedSignature OnClearButtonClickedDelegate;*/
 };

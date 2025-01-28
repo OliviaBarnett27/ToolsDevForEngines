@@ -309,6 +309,9 @@
 /I "..\Plugins\FX\Niagara\Source\NiagaraShader\Public"
 /I "..\Plugins\FX\Niagara\Source\NiagaraShader\Internal"
 /I "..\Plugins\FX\Niagara\Source\NiagaraVertexFactories\Public"
+/I "..\Intermediate\Build\Win64\UnrealEditor\Inc\Blutility\UHT"
+/I "Editor\Blutility\Classes"
+/I "Editor\Blutility\Public"
 /external:W0
 /external:I "ThirdParty\LibTiff\Source\Win64"
 /external:I "ThirdParty\LibTiff\Source"
