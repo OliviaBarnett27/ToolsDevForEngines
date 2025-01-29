@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "I_WeatherCalculations.h"
 #include "Editor/Blutility/Classes/EditorUtilityWidget.h"
 #include "EUW_WeatherSelector.generated.h"
 
@@ -16,7 +17,7 @@ class UW_GenerateButton;
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGenerateWeatherButtonClickedSignature);
 
 UCLASS()
-class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget
+class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget, public II_WeatherCalculations
 {
 	GENERATED_BODY()
 
@@ -44,4 +45,7 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
+
+	UFUNCTION()
+	float GetRainHeaviness() override;
 };

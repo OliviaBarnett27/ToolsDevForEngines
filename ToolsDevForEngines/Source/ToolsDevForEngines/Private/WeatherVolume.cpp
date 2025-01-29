@@ -15,6 +15,8 @@ AWeatherVolume::AWeatherVolume()
 	
 	_NS_SnowComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Snow Component"));
 	_NS_SnowComponent-> SetupAttachment(RootComponent);
+
+	
 	
 }
 

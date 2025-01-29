@@ -11,7 +11,7 @@
 #include "WeatherVolume.generated.h"
 
 UCLASS()
-class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume
+class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume, public II_WeatherCalculations
 {
 	GENERATED_BODY()
 
@@ -28,6 +28,7 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_SnowComponent;
+
 
 private:
 	float rainSpawnRate = 0.0f;

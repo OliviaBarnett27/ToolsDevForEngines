@@ -27,3 +27,8 @@ void UEUW_WeatherSelector::SetUserInputVariables()
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 	UE_LOG(LogTemp, Display, TEXT("BUTTON PRESSED"));
 }
+
+float UEUW_WeatherSelector::GetRainHeaviness()
+{
+	return II_WeatherCalculations::GetRainHeaviness();
+}
