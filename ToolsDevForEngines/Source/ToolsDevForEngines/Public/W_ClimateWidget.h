@@ -13,7 +13,7 @@ class USpacer;
 class UTextBlock;
 class UVerticalBox;
 
-//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnClearButtonClickedSignature);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnClimateClearButtonClickedSignature);
 
 UCLASS()
 class TOOLSDEVFORENGINES_API UW_ClimateWidget : public UUserWidget
@@ -24,13 +24,14 @@ class TOOLSDEVFORENGINES_API UW_ClimateWidget : public UUserWidget
 
 	UFUNCTION()
 	void ClearComboBoxSelection();
-	
+
+public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UVerticalBox> VerticalBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Title;
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<UComboBoxString> ComboBox;
+	TObjectPtr<UComboBoxString> MyComboBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USpacer> Spacer;
 	UPROPERTY(meta = (BindWidget))
@@ -40,6 +41,6 @@ class TOOLSDEVFORENGINES_API UW_ClimateWidget : public UUserWidget
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UBorder> Border;
 
-	/*UPROPERTY(BlueprintAssignable)
-	FOnClearButtonClickedSignature OnClearButtonClickedDelegate;*/
+	UPROPERTY(BlueprintAssignable)
+	FOnClimateClearButtonClickedSignature OnClimateClearButtonClickedDelegate;
 };

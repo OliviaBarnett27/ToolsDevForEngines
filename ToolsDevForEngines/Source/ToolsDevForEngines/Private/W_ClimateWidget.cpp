@@ -11,22 +11,22 @@ void UW_ClimateWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	//OnClearButtonClickedDelegate.AddDynamic(this, &UW_ClimateWidget::ClearComboBoxSelection);
+	OnClimateClearButtonClickedDelegate.AddDynamic(this, &UW_ClimateWidget::ClearComboBoxSelection);
 
 	Title->SetText(FText::FromString("Season:"));
 	
-	ComboBox->AddOption("Arid");
-	ComboBox->AddOption("Mediterranean");
-	ComboBox->AddOption("Polar");
-	ComboBox->AddOption("Temperate");
-	ComboBox->AddOption("Tropical");
+	MyComboBox->AddOption("Arid");
+	MyComboBox->AddOption("Mediterranean");
+	MyComboBox->AddOption("Polar");
+	MyComboBox->AddOption("Temperate");
+	MyComboBox->AddOption("Tropical");
 
 	ButtonText->SetText(FText::FromString("CLEAR"));
 
-	//ClearButton->OnClicked.AddDynamic(this, &UW_ClimateWidget::ClearComboBoxSelection);
+	ClearButton->OnClicked.AddDynamic(this, &UW_ClimateWidget::ClearComboBoxSelection);
 }
 
 void UW_ClimateWidget::ClearComboBoxSelection()
 {
-	ComboBox->ClearSelection();
+	MyComboBox->ClearSelection();
 }

@@ -37,7 +37,7 @@ struct Z_Construct_UClass_UW_GenerateButton_Statics
 		{ "IncludePath", "W_GenerateButton.h" },
 		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Button_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MyButton_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
@@ -48,7 +48,7 @@ struct Z_Construct_UClass_UW_GenerateButton_Statics
 		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_Button;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MyButton;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Text;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -57,10 +57,10 @@ struct Z_Construct_UClass_UW_GenerateButton_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Button = { "Button", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, Button), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Button_MetaData), NewProp_Button_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, Text), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_MetaData), NewProp_Text_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_MyButton = { "MyButton", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, MyButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MyButton_MetaData), NewProp_MyButton_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, Text), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_MetaData), NewProp_Text_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UW_GenerateButton_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Button,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_MyButton,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Text,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UW_GenerateButton_Statics::PropPointers) < 2048);
@@ -105,10 +105,10 @@ UW_GenerateButton::~UW_GenerateButton() {}
 struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UW_GenerateButton, UW_GenerateButton::StaticClass, TEXT("UW_GenerateButton"), &Z_Registration_Info_UClass_UW_GenerateButton, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_GenerateButton), 3019675551U) },
+		{ Z_Construct_UClass_UW_GenerateButton, UW_GenerateButton::StaticClass, TEXT("UW_GenerateButton"), &Z_Registration_Info_UClass_UW_GenerateButton, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_GenerateButton), 4002836784U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_2205555885(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_732488868(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -11,21 +11,21 @@ void UW_SeasonWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
 
-	//OnClearButtonClickedDelegate.AddDynamic(this, &UW_SeasonWidget::ClearComboBoxSelection);
+	OnSeasonClearButtonClickedDelegate.AddDynamic(this, &UW_SeasonWidget::ClearComboBoxSelection);
 
 	Title->SetText(FText::FromString("Season:"));
 	
-	ComboBox->AddOption("Spring");
-	ComboBox->AddOption("Summer");
-	ComboBox->AddOption("Autumn");
-	ComboBox->AddOption("Winter");
+	MyComboBox->AddOption("Spring");
+	MyComboBox->AddOption("Summer");
+	MyComboBox->AddOption("Autumn");
+	MyComboBox->AddOption("Winter");
 
 	ButtonText->SetText(FText::FromString("CLEAR"));
 
-	//ClearButton->OnClicked.AddDynamic(this, &UW_SeasonWidget::ClearComboBoxSelection);
+	ClearButton->OnClicked.AddDynamic(this, &UW_SeasonWidget::ClearComboBoxSelection);
 }
 
 void UW_SeasonWidget::ClearComboBoxSelection()
 {
-	ComboBox->ClearSelection();
+	MyComboBox->ClearSelection();
 }

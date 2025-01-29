@@ -72,6 +72,15 @@
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\WeatherVolume.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_ClimateWidget.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_DayNightWidget.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_GenerateButton.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_SeasonWidget.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
@@ -91,6 +100,15 @@
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\WeatherVolume.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ClimateWidget.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayNightWidget.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_GenerateButton.h">
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_SeasonWidget.h">

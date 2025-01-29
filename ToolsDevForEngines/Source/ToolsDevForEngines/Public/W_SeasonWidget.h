@@ -13,7 +13,7 @@ class USpacer;
 class UTextBlock;
 class UVerticalBox;
 
-//DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnClearButtonClickedSignature);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnSeasonClearButtonClickedSignature);
 
 UCLASS(Abstract, BlueprintType)
 class TOOLSDEVFORENGINES_API UW_SeasonWidget : public UUserWidget
@@ -31,7 +31,7 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Title;
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<UComboBoxString> ComboBox;
+	TObjectPtr<UComboBoxString> MyComboBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USpacer> Spacer;
 	UPROPERTY(meta = (BindWidget))
@@ -41,6 +41,6 @@ public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UBorder> Border;
 
-	/*UPROPERTY(BlueprintAssignable)
-	FOnClearButtonClickedSignature OnClearButtonClickedDelegate;*/
+	UPROPERTY(BlueprintAssignable)
+	FOnSeasonClearButtonClickedSignature OnSeasonClearButtonClickedDelegate;
 };

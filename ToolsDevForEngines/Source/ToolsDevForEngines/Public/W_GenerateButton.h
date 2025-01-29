@@ -18,8 +18,9 @@ class TOOLSDEVFORENGINES_API UW_GenerateButton : public UUserWidget
 
 	virtual void NativeConstruct() override;
 
+public:
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<UButton> Button;
+	TObjectPtr<UButton> MyButton;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Text;
 	

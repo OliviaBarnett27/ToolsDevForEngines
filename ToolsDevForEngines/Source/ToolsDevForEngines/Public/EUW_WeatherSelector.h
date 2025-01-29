@@ -12,9 +12,9 @@ class UCanvasPanel;
 class UW_SeasonWidget;
 class UTextBlock;
 class UW_GenerateButton;
-/**
- * 
- */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGenerateWeatherButtonClickedSignature);
+
 UCLASS()
 class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget
 {
@@ -23,6 +23,9 @@ class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget
 	virtual void NativeConstruct() override;
 
 public:
+	FName UserClimate;
+	FName UserSeason;
+	
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UCanvasPanel> Canvas;
 	UPROPERTY(meta = (BindWidget))
@@ -35,4 +38,10 @@ public:
 	TObjectPtr<UW_DayNightWidget> DayNightWidget;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UW_GenerateButton> GenerateButton;
+
+	UFUNCTION(BlueprintCallable)
+	void SetUserInputVariables();
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
 };
