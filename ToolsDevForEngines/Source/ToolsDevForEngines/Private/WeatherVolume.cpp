@@ -3,10 +3,13 @@
 
 #include "WeatherVolume.h"
 
+#include "EUW_WeatherSelector.h"
+
 
 // Sets default values
 AWeatherVolume::AWeatherVolume()
 {
+	
 	/*_BoxComponent = CreateDefaultSubobject<UBoxComponent>(TEXT("Box Component"));
 	RootComponent = _BoxComponent;*/
 	
@@ -15,6 +18,8 @@ AWeatherVolume::AWeatherVolume()
 	
 	_NS_SnowComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Snow Component"));
 	_NS_SnowComponent-> SetupAttachment(RootComponent);
+
+	//II_WeatherCalculations::Execute_GetRainHeaviness(UEUW_WeatherSelector);
 
 	
 	

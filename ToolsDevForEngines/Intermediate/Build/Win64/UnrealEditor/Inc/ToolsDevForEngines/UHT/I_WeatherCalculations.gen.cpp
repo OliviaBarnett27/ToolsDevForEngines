@@ -44,6 +44,10 @@ float II_WeatherCalculations::Execute_GetRainHeaviness(UObject* O)
 	{
 		O->ProcessEvent(Func, &Parms);
 	}
+	else if (auto I = (II_WeatherCalculations*)(O->GetNativeInterfaceAddress(UI_WeatherCalculations::StaticClass())))
+	{
+		Parms.ReturnValue = I->GetRainHeaviness_Implementation();
+	}
 	return Parms.ReturnValue;
 }
 struct Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics
@@ -62,7 +66,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UI_Wea
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::NewProp_ReturnValue,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UI_WeatherCalculations, nullptr, "GetRainHeaviness", nullptr, nullptr, Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::PropPointers), sizeof(I_WeatherCalculations_eventGetRainHeaviness_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::Function_MetaDataParams), Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::Function_MetaDataParams) };
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UI_WeatherCalculations, nullptr, "GetRainHeaviness", nullptr, nullptr, Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::PropPointers), sizeof(I_WeatherCalculations_eventGetRainHeaviness_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x0C020C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::Function_MetaDataParams), Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness_Statics::Function_MetaDataParams) };
 static_assert(sizeof(I_WeatherCalculations_eventGetRainHeaviness_Parms) < MAX_uint16);
 UFunction* Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness()
 {
@@ -73,11 +77,23 @@ UFunction* Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness()
 	}
 	return ReturnFunction;
 }
+DEFINE_FUNCTION(II_WeatherCalculations::execGetRainHeaviness)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(float*)Z_Param__Result=P_THIS->GetRainHeaviness_Implementation();
+	P_NATIVE_END;
+}
 // End Interface UI_WeatherCalculations Function GetRainHeaviness
 
 // Begin Interface UI_WeatherCalculations
 void UI_WeatherCalculations::StaticRegisterNativesUI_WeatherCalculations()
 {
+	UClass* Class = UI_WeatherCalculations::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "GetRainHeaviness", &II_WeatherCalculations::execGetRainHeaviness },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UI_WeatherCalculations);
 UClass* Z_Construct_UClass_UI_WeatherCalculations_NoRegister()
@@ -93,7 +109,7 @@ struct Z_Construct_UClass_UI_WeatherCalculations_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness, "GetRainHeaviness" }, // 1315463876
+		{ &Z_Construct_UFunction_UI_WeatherCalculations_GetRainHeaviness, "GetRainHeaviness" }, // 3623939807
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -139,14 +155,14 @@ UI_WeatherCalculations::~UI_WeatherCalculations() {}
 // End Interface UI_WeatherCalculations
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UI_WeatherCalculations, UI_WeatherCalculations::StaticClass, TEXT("UI_WeatherCalculations"), &Z_Registration_Info_UClass_UI_WeatherCalculations, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UI_WeatherCalculations), 3683065281U) },
+		{ Z_Construct_UClass_UI_WeatherCalculations, UI_WeatherCalculations::StaticClass, TEXT("UI_WeatherCalculations"), &Z_Registration_Info_UClass_UI_WeatherCalculations, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UI_WeatherCalculations), 4169156868U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_3334260335(TEXT("/Script/ToolsDevForEngines"),
-	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_197094730(TEXT("/Script/ToolsDevForEngines"),
+	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_I_WeatherCalculations_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

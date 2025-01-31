@@ -46,6 +46,7 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
 
-	UFUNCTION()
-	float GetRainHeaviness() override;
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	float GetRainHeaviness_Implementation() override;
+
 };

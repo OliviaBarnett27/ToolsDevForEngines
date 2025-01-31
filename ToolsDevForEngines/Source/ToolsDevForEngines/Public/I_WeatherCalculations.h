@@ -18,6 +18,6 @@ class TOOLSDEVFORENGINES_API II_WeatherCalculations
 	GENERATED_BODY()
 
 public:
-	UFUNCTION()
-	virtual float GetRainHeaviness();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
+	float GetRainHeaviness();
 };

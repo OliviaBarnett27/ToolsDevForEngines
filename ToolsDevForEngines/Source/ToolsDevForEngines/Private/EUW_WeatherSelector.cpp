@@ -28,7 +28,9 @@ void UEUW_WeatherSelector::SetUserInputVariables()
 	UE_LOG(LogTemp, Display, TEXT("BUTTON PRESSED"));
 }
 
-float UEUW_WeatherSelector::GetRainHeaviness()
+float UEUW_WeatherSelector::GetRainHeaviness_Implementation_Implementation()
 {
-	return II_WeatherCalculations::GetRainHeaviness();
+	float rainSpawnRate = 0.0f;
+	return rainSpawnRate;
 }
+

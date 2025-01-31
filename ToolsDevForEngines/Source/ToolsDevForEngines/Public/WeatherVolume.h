@@ -11,7 +11,7 @@
 #include "WeatherVolume.generated.h"
 
 UCLASS()
-class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume, public II_WeatherCalculations
+class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume
 {
 	GENERATED_BODY()
 
