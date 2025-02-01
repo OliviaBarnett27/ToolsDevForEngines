@@ -3,12 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "EUW_WeatherSelector.h"
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
 #include "PCGComponent.h"
 #include "I_WeatherCalculations.h"
 #include "Components/BoxComponent.h"
 #include "WeatherVolume.generated.h"
+
+struct FUserWeatherData;
 
 UCLASS()
 class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume
@@ -29,7 +32,13 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_SnowComponent;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weather Data")
+	FUserWeatherData _VolumeData;
 
+	UFUNCTION(BlueprintCallable, Category = "Weather Data")
+	void SetUserWeatherData(FUserWeatherData WeatherData);
+
+	
 private:
 	float rainSpawnRate = 0.0f;
 };

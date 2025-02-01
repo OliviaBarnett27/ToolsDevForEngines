@@ -6,6 +6,7 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "ToolsDevForEngines/Public/WeatherVolume.h"
+#include "ToolsDevForEngines/Public/EUW_WeatherSelector.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeWeatherVolume() {}
 
@@ -14,12 +15,61 @@ ENGINE_API UClass* Z_Construct_UClass_AVolume();
 NIAGARA_API UClass* Z_Construct_UClass_UNiagaraComponent_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_AWeatherVolume();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_AWeatherVolume_NoRegister();
+TOOLSDEVFORENGINES_API UScriptStruct* Z_Construct_UScriptStruct_FUserWeatherData();
 UPackage* Z_Construct_UPackage__Script_ToolsDevForEngines();
 // End Cross Module References
+
+// Begin Class AWeatherVolume Function SetUserWeatherData
+struct Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics
+{
+	struct WeatherVolume_eventSetUserWeatherData_Parms
+	{
+		FUserWeatherData WeatherData;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Weather Data" },
+		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_WeatherData;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::NewProp_WeatherData = { "WeatherData", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(WeatherVolume_eventSetUserWeatherData_Parms, WeatherData), Z_Construct_UScriptStruct_FUserWeatherData, METADATA_PARAMS(0, nullptr) }; // 3302858213
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::NewProp_WeatherData,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeatherVolume, nullptr, "SetUserWeatherData", nullptr, nullptr, Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::PropPointers), sizeof(Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::WeatherVolume_eventSetUserWeatherData_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::Function_MetaDataParams), Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::WeatherVolume_eventSetUserWeatherData_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AWeatherVolume::execSetUserWeatherData)
+{
+	P_GET_STRUCT(FUserWeatherData,Z_Param_WeatherData);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetUserWeatherData(Z_Param_WeatherData);
+	P_NATIVE_END;
+}
+// End Class AWeatherVolume Function SetUserWeatherData
 
 // Begin Class AWeatherVolume
 void AWeatherVolume::StaticRegisterNativesAWeatherVolume()
 {
+	UClass* Class = AWeatherVolume::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "SetUserWeatherData", &AWeatherVolume::execSetUserWeatherData },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AWeatherVolume);
 UClass* Z_Construct_UClass_AWeatherVolume_NoRegister()
@@ -45,11 +95,20 @@ struct Z_Construct_UClass_AWeatherVolume_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp__VolumeData_MetaData[] = {
+		{ "Category", "Weather Data" },
+		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__NS_RainComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp__NS_SnowComponent;
+	static const UECodeGen_Private::FStructPropertyParams NewProp__VolumeData;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData, "SetUserWeatherData" }, // 1483237118
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AWeatherVolume>::IsAbstract,
 	};
@@ -57,9 +116,11 @@ struct Z_Construct_UClass_AWeatherVolume_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AWeatherVolume_Statics::NewProp__NS_RainComponent = { "_NS_RainComponent", nullptr, (EPropertyFlags)0x01140000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWeatherVolume, _NS_RainComponent), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__NS_RainComponent_MetaData), NewProp__NS_RainComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AWeatherVolume_Statics::NewProp__NS_SnowComponent = { "_NS_SnowComponent", nullptr, (EPropertyFlags)0x01140000000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWeatherVolume, _NS_SnowComponent), Z_Construct_UClass_UNiagaraComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__NS_SnowComponent_MetaData), NewProp__NS_SnowComponent_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_AWeatherVolume_Statics::NewProp__VolumeData = { "_VolumeData", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AWeatherVolume, _VolumeData), Z_Construct_UScriptStruct_FUserWeatherData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp__VolumeData_MetaData), NewProp__VolumeData_MetaData) }; // 3302858213
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AWeatherVolume_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeatherVolume_Statics::NewProp__NS_RainComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeatherVolume_Statics::NewProp__NS_SnowComponent,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AWeatherVolume_Statics::NewProp__VolumeData,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AWeatherVolume_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_AWeatherVolume_Statics::DependentSingletons[])() = {
@@ -72,11 +133,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_AWeatherVolume_Statics:
 	"Engine",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_AWeatherVolume_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_AWeatherVolume_Statics::PropPointers),
 	0,
 	0x009000A4u,
@@ -99,14 +160,14 @@ AWeatherVolume::~AWeatherVolume() {}
 // End Class AWeatherVolume
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics
+struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 2142421256U) },
+		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 740370831U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_2084245080(TEXT("/Script/ToolsDevForEngines"),
-	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_1773244177(TEXT("/Script/ToolsDevForEngines"),
+	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

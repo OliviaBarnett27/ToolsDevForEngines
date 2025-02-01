@@ -8,9 +8,9 @@
 
 class UTextBlock;
 class UButton;
-/**
- * 
- */
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGenerateButtonClickedSignature);
+
 UCLASS()
 class TOOLSDEVFORENGINES_API UW_GenerateButton : public UUserWidget
 {
@@ -19,9 +19,18 @@ class TOOLSDEVFORENGINES_API UW_GenerateButton : public UUserWidget
 	virtual void NativeConstruct() override;
 
 public:
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY( meta = (BindWidget))
 	TObjectPtr<UButton> MyButton;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Text;
+
+	UFUNCTION()
+	void OnGenerateButtonClicked();
 	
+
+	UFUNCTION(BlueprintCallable)
+	static TArray<AVolume*> FindVolumeByClass(UWorld* World, TSubclassOf<AVolume> VolumeClass);
+
+	UPROPERTY(BlueprintAssignable)
+	FOnGenerateButtonClickedSignature  OnGenerateButtonClickedDelegate;
 };

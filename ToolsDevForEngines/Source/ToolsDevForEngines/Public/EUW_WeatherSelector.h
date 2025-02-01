@@ -16,6 +16,17 @@ class UW_GenerateButton;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGenerateWeatherButtonClickedSignature);
 
+USTRUCT(BlueprintType)
+struct FUserWeatherData
+{
+	GENERATED_BODY()
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float rainSpawnRate;
+
+	FUserWeatherData():rainSpawnRate(0.0f){};
+};
+
 UCLASS()
 class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget, public II_WeatherCalculations
 {
@@ -37,7 +48,7 @@ public:
 	TObjectPtr<UW_ClimateWidget> ClimateWidget;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UW_DayNightWidget> DayNightWidget;
-	UPROPERTY(meta = (BindWidget))
+	UPROPERTY(meta = (BindWidget)) 
 	TObjectPtr<UW_GenerateButton> GenerateButton;
 
 	UFUNCTION(BlueprintCallable)
@@ -49,4 +60,6 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
 	float GetRainHeaviness_Implementation() override;
 
+
+	
 };
