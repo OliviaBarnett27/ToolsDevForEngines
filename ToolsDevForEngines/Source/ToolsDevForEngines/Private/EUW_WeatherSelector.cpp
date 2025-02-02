@@ -24,9 +24,26 @@ void UEUW_WeatherSelector::NativeConstruct()
 
 void UEUW_WeatherSelector::SetUserInputVariables()
 {
-	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
-	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
+	UDataTable* MyDataTable = GenerateButton->GetDataTable();
 
+	//--------------------------------get the data table row using struct type and the names
+
+	//GeneratedWeatherQueue.Enqueue(UserDataStruct);
+
+	for (int i = 0; i <= 500; i++)
+{
+	//--DEBUGGING--
+	UserDataStruct.rainSpawnRate = i * 1000 ;
+	//--END DEBUGGING--
+
+	GeneratedWeatherQueue.Enqueue(UserDataStruct);
+
+			
+}
+}
+
+void UEUW_WeatherSelector::CommunicateWithVolumes()
+{
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
 	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
 	{
@@ -37,18 +54,29 @@ void UEUW_WeatherSelector::SetUserInputVariables()
 	for (int i = 0; i < PlacedWeatherVolumes.Num(); i++) //for each found weather volume
 	{
 		AWeatherVolume* Volume = Cast<AWeatherVolume>(PlacedWeatherVolumes[i]); //cast to the weather volume
-
-		//--DEBUGGING--
-		UserDataStruct.rainSpawnRate = 20000;
-		UserDataStruct.climate = UserClimate;
-		//--END DEBUGGING--
 		
 		Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 	}
+}
 
-	UDataTable* MyDataTable = GenerateButton->GetDataTable();
+void UEUW_WeatherSelector::CalculateWeather()
+{
+	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
+	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 
-	//--------------------------------get the data table row using struct type and the names 
+	/*for (int i = 0; i <= 500; i++)
+	{
+		//--DEBUGGING--
+		UserDataStruct.rainSpawnRate = i * 1000 ;
+		//--END DEBUGGING--
+
+		GeneratedWeatherQueue.Enqueue(UserDataStruct);
+	}*/
+	
+
+
+
+	
 }
 
 

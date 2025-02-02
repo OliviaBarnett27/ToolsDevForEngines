@@ -19,6 +19,8 @@ TOOLSDEVFORENGINES_API void FOnGenerateWeatherButtonClickedSignature_DelegateWra
 
 
 #define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execCalculateWeather); \
+	DECLARE_FUNCTION(execCommunicateWithVolumes); \
 	DECLARE_FUNCTION(execSetUserInputVariables);
 
 

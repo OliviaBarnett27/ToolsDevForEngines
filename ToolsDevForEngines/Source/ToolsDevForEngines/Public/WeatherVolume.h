@@ -36,7 +36,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
 	void SetUserWeatherData(FUserWeatherData WeatherData);
 
+	TQueue<FUserWeatherData> MyWeatherQueue;
+	
 	
 public:
 	float rainSpawnRate = 0.0f;
+	int queuelengthchecker = 0;
 };
