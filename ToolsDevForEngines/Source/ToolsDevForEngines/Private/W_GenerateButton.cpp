@@ -37,12 +37,7 @@ void UW_GenerateButton::OnGenerateButtonClicked()
 		return; //exit if no weather volume
 	}
 
-	for (int i = 0; i < PlacedWeatherVolumes.Num(); i++)
-	{
-		AWeatherVolume* Volume = static_cast<AWeatherVolume*>(PlacedWeatherVolumes[i]);
-
-		//Volume->SetUserWeatherData();
-	}
+	MyDataTable = GetDataTable();
 	
 }
 
@@ -59,4 +54,14 @@ TArray<AVolume*> UW_GenerateButton::FindVolumeByClass(UWorld* World, TSubclassOf
 		}
 	}
 	return WeatherVolumesInWorld;
+}
+
+UDataTable* UW_GenerateButton::GetDataTable()
+{
+	if (WeatherDataTable)
+	{
+		MyDataTable = WeatherDataTable.Get();
+		UE_LOG(LogTemp, Display, TEXT("data table found"));
+	}
+	return MyDataTable;
 }

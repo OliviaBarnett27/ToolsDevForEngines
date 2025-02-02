@@ -33,4 +33,12 @@ public:
 
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateButtonClickedSignature  OnGenerateButtonClickedDelegate;
+
+	UFUNCTION(BlueprintCallable)
+	UDataTable* GetDataTable();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TObjectPtr<UDataTable> WeatherDataTable;
+
+	UDataTable* MyDataTable;
 };

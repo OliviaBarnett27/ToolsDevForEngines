@@ -6,6 +6,7 @@
 #include "EUW_WeatherSelector.h"
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
+#include "NiagaraSystem.h"
 #include "WeatherVolume.generated.h"
 
 struct FUserWeatherData;

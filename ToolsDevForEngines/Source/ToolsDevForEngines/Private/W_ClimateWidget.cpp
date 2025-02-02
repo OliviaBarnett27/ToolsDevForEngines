@@ -13,7 +13,7 @@ void UW_ClimateWidget::NativeConstruct()
 
 	OnClimateClearButtonClickedDelegate.AddDynamic(this, &UW_ClimateWidget::ClearComboBoxSelection);
 
-	Title->SetText(FText::FromString("Season:"));
+	Title->SetText(FText::FromString("Climate:"));
 	
 	MyComboBox->AddOption("Arid");
 	MyComboBox->AddOption("Mediterranean");

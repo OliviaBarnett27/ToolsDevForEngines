@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AVolume;
+class UDataTable;
 class UWorld;
 #ifdef TOOLSDEVFORENGINES_W_GenerateButton_generated_h
 #error "W_GenerateButton.generated.h already included, missing '#pragma once' in W_GenerateButton.h"
@@ -21,6 +22,7 @@ TOOLSDEVFORENGINES_API void FOnGenerateButtonClickedSignature_DelegateWrapper(co
 
 
 #define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetDataTable); \
 	DECLARE_FUNCTION(execFindVolumeByClass); \
 	DECLARE_FUNCTION(execOnGenerateButtonClicked);
 

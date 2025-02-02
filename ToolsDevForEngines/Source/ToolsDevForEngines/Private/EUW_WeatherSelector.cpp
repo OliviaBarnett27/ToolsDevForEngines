@@ -28,24 +28,27 @@ void UEUW_WeatherSelector::SetUserInputVariables()
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
-	if (!(PlacedWeatherVolumes.Num() > 0))
+	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No placed volume"));
 		return; //exit if no weather volume
 	}
 
-	for (int i = 0; i < PlacedWeatherVolumes.Num(); i++)
+	for (int i = 0; i < PlacedWeatherVolumes.Num(); i++) //for each found weather volume
 	{
-		AWeatherVolume* Volume = static_cast<AWeatherVolume*>(PlacedWeatherVolumes[i]);
+		AWeatherVolume* Volume = Cast<AWeatherVolume>(PlacedWeatherVolumes[i]); //cast to the weather volume
 
 		//--DEBUGGING--
-		UserDataStruct.rainSpawnRate = 3434343.43;
+		UserDataStruct.rainSpawnRate = 20000;
+		UserDataStruct.climate = UserClimate;
 		//--END DEBUGGING--
 		
-		Volume->SetUserWeatherData(UserDataStruct);
+		Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 	}
-	
-	UE_LOG(LogTemp, Display, TEXT("BUTTON PRESSED"));
+
+	UDataTable* MyDataTable = GenerateButton->GetDataTable();
+
+	//--------------------------------get the data table row using struct type and the names 
 }
 
 

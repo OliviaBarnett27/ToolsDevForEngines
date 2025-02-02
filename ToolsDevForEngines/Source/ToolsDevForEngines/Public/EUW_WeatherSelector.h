@@ -50,5 +50,4 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FUserWeatherData UserDataStruct;
-	
 };

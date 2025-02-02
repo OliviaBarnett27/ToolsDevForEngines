@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeW_GenerateButton() {}
 // Begin Cross Module References
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 ENGINE_API UClass* Z_Construct_UClass_AVolume_NoRegister();
+ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_GenerateButton();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_GenerateButton_NoRegister();
@@ -102,6 +103,47 @@ DEFINE_FUNCTION(UW_GenerateButton::execFindVolumeByClass)
 }
 // End Class UW_GenerateButton Function FindVolumeByClass
 
+// Begin Class UW_GenerateButton Function GetDataTable
+struct Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics
+{
+	struct W_GenerateButton_eventGetDataTable_Parms
+	{
+		UDataTable* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(W_GenerateButton_eventGetDataTable_Parms, ReturnValue), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UW_GenerateButton, nullptr, "GetDataTable", nullptr, nullptr, Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::PropPointers), sizeof(Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::W_GenerateButton_eventGetDataTable_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::Function_MetaDataParams), Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::W_GenerateButton_eventGetDataTable_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UW_GenerateButton_GetDataTable()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UW_GenerateButton_GetDataTable_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UW_GenerateButton::execGetDataTable)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(UDataTable**)Z_Param__Result=P_THIS->GetDataTable();
+	P_NATIVE_END;
+}
+// End Class UW_GenerateButton Function GetDataTable
+
 // Begin Class UW_GenerateButton Function OnGenerateButtonClicked
 struct Z_Construct_UFunction_UW_GenerateButton_OnGenerateButtonClicked_Statics
 {
@@ -137,6 +179,7 @@ void UW_GenerateButton::StaticRegisterNativesUW_GenerateButton()
 	UClass* Class = UW_GenerateButton::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "FindVolumeByClass", &UW_GenerateButton::execFindVolumeByClass },
+		{ "GetDataTable", &UW_GenerateButton::execGetDataTable },
 		{ "OnGenerateButtonClicked", &UW_GenerateButton::execOnGenerateButtonClicked },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -166,14 +209,20 @@ struct Z_Construct_UClass_UW_GenerateButton_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnGenerateButtonClickedDelegate_MetaData[] = {
 		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WeatherDataTable_MetaData[] = {
+		{ "Category", "W_GenerateButton" },
+		{ "ModuleRelativePath", "Public/W_GenerateButton.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MyButton;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Text;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnGenerateButtonClickedDelegate;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_WeatherDataTable;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UW_GenerateButton_FindVolumeByClass, "FindVolumeByClass" }, // 1993767434
+		{ &Z_Construct_UFunction_UW_GenerateButton_GetDataTable, "GetDataTable" }, // 3953196456
 		{ &Z_Construct_UFunction_UW_GenerateButton_OnGenerateButtonClicked, "OnGenerateButtonClicked" }, // 4128125043
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -185,10 +234,12 @@ struct Z_Construct_UClass_UW_GenerateButton_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_MyButton = { "MyButton", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, MyButton), Z_Construct_UClass_UButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MyButton_MetaData), NewProp_MyButton_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Text = { "Text", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, Text), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Text_MetaData), NewProp_Text_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_OnGenerateButtonClickedDelegate = { "OnGenerateButtonClickedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, OnGenerateButtonClickedDelegate), Z_Construct_UDelegateFunction_ToolsDevForEngines_OnGenerateButtonClickedSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnGenerateButtonClickedDelegate_MetaData), NewProp_OnGenerateButtonClickedDelegate_MetaData) }; // 3762991163
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_WeatherDataTable = { "WeatherDataTable", nullptr, (EPropertyFlags)0x0114000000000005, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_GenerateButton, WeatherDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeatherDataTable_MetaData), NewProp_WeatherDataTable_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UW_GenerateButton_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_MyButton,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_Text,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_OnGenerateButtonClickedDelegate,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_GenerateButton_Statics::NewProp_WeatherDataTable,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UW_GenerateButton_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UW_GenerateButton_Statics::DependentSingletons[])() = {
@@ -232,10 +283,10 @@ UW_GenerateButton::~UW_GenerateButton() {}
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UW_GenerateButton, UW_GenerateButton::StaticClass, TEXT("UW_GenerateButton"), &Z_Registration_Info_UClass_UW_GenerateButton, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_GenerateButton), 3130130849U) },
+		{ Z_Construct_UClass_UW_GenerateButton, UW_GenerateButton::StaticClass, TEXT("UW_GenerateButton"), &Z_Registration_Info_UClass_UW_GenerateButton, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_GenerateButton), 3401375459U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_1121273586(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_607206148(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_GenerateButton_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
