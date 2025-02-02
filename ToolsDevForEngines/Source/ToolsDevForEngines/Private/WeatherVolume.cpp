@@ -30,6 +30,8 @@ void AWeatherVolume::BeginPlay()
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
+
+	UE_LOG(LogTemp, Display, TEXT("Rain spawn rate is: %f"), _VolumeData.rainSpawnRate);
 }
 
 

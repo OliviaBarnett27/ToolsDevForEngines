@@ -5,8 +5,10 @@
 #include "CoreMinimal.h"
 #include "I_WeatherCalculations.h"
 #include "Editor/Blutility/Classes/EditorUtilityWidget.h"
+#include "ToolsDevForEngines/UserWeatherData.h"
 #include "EUW_WeatherSelector.generated.h"
 
+struct FUserWeatherData;
 class UW_DayNightWidget;
 class UW_ClimateWidget;
 class UCanvasPanel;
@@ -15,17 +17,6 @@ class UTextBlock;
 class UW_GenerateButton;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGenerateWeatherButtonClickedSignature);
-
-USTRUCT(BlueprintType)
-struct FUserWeatherData
-{
-	GENERATED_BODY()
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float rainSpawnRate;
-
-	FUserWeatherData():rainSpawnRate(0.0f){};
-};
 
 UCLASS()
 class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget, public II_WeatherCalculations
@@ -57,9 +48,7 @@ public:
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
 
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable)
-	float GetRainHeaviness_Implementation() override;
-
-
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FUserWeatherData UserDataStruct;
 	
 };

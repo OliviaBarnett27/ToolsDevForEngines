@@ -18,7 +18,7 @@ void UW_GenerateButton::NativeConstruct()
 
 	if (MyButton)
 	{
-		MyButton->OnClicked.AddDynamic(this, &UW_GenerateButton::OnGenerateButtonClicked);
+		//MyButton->OnClicked.AddDynamic(this, &UW_GenerateButton::OnGenerateButtonClicked);
 	}
 	else
 	{
@@ -36,20 +36,27 @@ void UW_GenerateButton::OnGenerateButtonClicked()
 		UE_LOG(LogTemp, Warning, TEXT("No placed volume"));
 		return; //exit if no weather volume
 	}
+
+	for (int i = 0; i < PlacedWeatherVolumes.Num(); i++)
+	{
+		AWeatherVolume* Volume = static_cast<AWeatherVolume*>(PlacedWeatherVolumes[i]);
+
+		//Volume->SetUserWeatherData();
+	}
 	
 }
 
 TArray<AVolume*> UW_GenerateButton::FindVolumeByClass(UWorld* World, TSubclassOf<AVolume> VolumeClass)
 {
-	TArray<AVolume*> AllVolumes;
+	TArray<AVolume*> WeatherVolumesInWorld;
 	for (TActorIterator<AVolume> volumes(World, VolumeClass); volumes; ++volumes)
 	{
-		UE_LOG(LogTemp, Display, TEXT("VOLUME FOUNDDD"));
+		UE_LOG(LogTemp, Display, TEXT("VOLUME FOUND"));
 
-		 AllVolumes.Add(*volumes);
+		if(volumes->IsA(AWeatherVolume::StaticClass()))
+		{
+			WeatherVolumesInWorld.Add(*volumes);
+		}
 	}
-
-	return AllVolumes;
-	
-	
+	return WeatherVolumesInWorld;
 }

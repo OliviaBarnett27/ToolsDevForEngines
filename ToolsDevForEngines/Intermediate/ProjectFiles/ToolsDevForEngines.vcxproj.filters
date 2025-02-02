@@ -69,6 +69,9 @@
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\Subsystem_WeatherSelector.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\S_UserWeatherData.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\WeatherVolume.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
@@ -97,6 +100,9 @@
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\Subsystem_WeatherSelector.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\S_UserWeatherData.h">
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\WeatherVolume.h">

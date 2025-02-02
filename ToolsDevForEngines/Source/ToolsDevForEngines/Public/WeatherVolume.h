@@ -6,15 +6,12 @@
 #include "EUW_WeatherSelector.h"
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
-#include "PCGComponent.h"
-#include "I_WeatherCalculations.h"
-#include "Components/BoxComponent.h"
 #include "WeatherVolume.generated.h"
 
 struct FUserWeatherData;
 
 UCLASS()
-class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume
+class TOOLSDEVFORENGINES_API AWeatherVolume : public AVolume 
 {
 	GENERATED_BODY()
 
@@ -39,6 +36,6 @@ public:
 	void SetUserWeatherData(FUserWeatherData WeatherData);
 
 	
-private:
+public:
 	float rainSpawnRate = 0.0f;
 };
