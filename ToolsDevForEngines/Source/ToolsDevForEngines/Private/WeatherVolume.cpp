@@ -28,19 +28,12 @@ void AWeatherVolume::BeginPlay()
 
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
-	/*_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
-	_VolumeData.climate = WeatherData.climate;*/
-
-	MyWeatherQueue.Enqueue(WeatherData);
-	queuelengthchecker++;
-	
-	//UE_LOG(LogTemp, Display, TEXT("Name: %s"), *_VolumeData.climate.ToString());
+	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
+	_VolumeData.climate = WeatherData.climate;
 
 	
-	UE_LOG(LogTemp, Display, TEXT("queue length: %d"), queuelengthchecker);
+	UE_LOG(LogTemp, Display, TEXT("Name: %s"), *_VolumeData.climate.ToString());
 }
-	
-
 
 
 

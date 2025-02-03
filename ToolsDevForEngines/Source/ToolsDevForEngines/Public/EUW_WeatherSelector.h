@@ -28,8 +28,7 @@ class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget,
 public:
 	FName UserClimate;
 	FName UserSeason;
-
-	//------ UI WIDGETS ------
+	
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UCanvasPanel> Canvas;
 	UPROPERTY(meta = (BindWidget))
@@ -42,22 +41,13 @@ public:
 	TObjectPtr<UW_DayNightWidget> DayNightWidget;
 	UPROPERTY(meta = (BindWidget)) 
 	TObjectPtr<UW_GenerateButton> GenerateButton;
-	
+
+	UFUNCTION(BlueprintCallable)
+	void SetUserInputVariables();
+
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FUserWeatherData UserDataStruct;
-
-	TQueue<FUserWeatherData> GeneratedWeatherQueue;
-
-	//------ UFUNCTIONS ------
-	UFUNCTION(BlueprintCallable)
-	void SetUserInputVariables();
-
-	UFUNCTION(BlueprintCallable)
-	void CommunicateWithVolumes();
-
-	UFUNCTION(BlueprintCallable)
-	void CalculateWeather(); //will need param for daylength for forloop eventually
 };
