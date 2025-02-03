@@ -8,6 +8,7 @@
 #include "ToolsDevForEngines/UserWeatherData.h"
 #include "EUW_WeatherSelector.generated.h"
 
+class UW_DayLengthWidget;
 struct FUserWeatherData;
 class UW_DayNightWidget;
 class UW_ClimateWidget;
@@ -28,6 +29,7 @@ class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget,
 public:
 	FName UserClimate;
 	FName UserSeason;
+	float UserDayLength;
 	
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UCanvasPanel> Canvas;
@@ -39,11 +41,16 @@ public:
 	TObjectPtr<UW_ClimateWidget> ClimateWidget;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UW_DayNightWidget> DayNightWidget;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UW_DayLengthWidget> DayLengthWidget;
 	UPROPERTY(meta = (BindWidget)) 
 	TObjectPtr<UW_GenerateButton> GenerateButton;
 
 	UFUNCTION(BlueprintCallable)
-	void SetUserInputVariables();
+	void SetUserWeatherData();
+
+	UFUNCTION(BlueprintCallable)
+	void SetUserInputs();
 
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;

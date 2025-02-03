@@ -12,7 +12,8 @@ struct FUserWeatherData
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float rainSpawnRate;
-	FName climate;
+	float snowSpawnRate;
+	float dayLength;
 
-	FUserWeatherData():rainSpawnRate(0.0f), climate(NAME_None){};
+	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.0f){};
 };

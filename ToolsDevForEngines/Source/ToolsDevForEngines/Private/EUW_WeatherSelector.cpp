@@ -5,10 +5,12 @@
 
 #include "WeatherVolume.h"
 #include "W_ClimateWidget.h"
+#include "W_DayLengthWidget.h"
 #include "W_GenerateButton.h"
 #include "W_SeasonWidget.h"
 #include "Components/Button.h"
 #include "Components/ComboBoxString.h"
+#include "Components/Slider.h"
 #include "Components/TextBlock.h"
 
 void UEUW_WeatherSelector::NativeConstruct()
@@ -17,15 +19,23 @@ void UEUW_WeatherSelector::NativeConstruct()
 
 	UtilityTitle->SetText(FText::FromString("Weather Selector"));
 	
-	OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::SetUserInputVariables);
+	OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
 
-	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::SetUserInputVariables);
+	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
 }
 
-void UEUW_WeatherSelector::SetUserInputVariables()
+void UEUW_WeatherSelector::SetUserInputs()
 {
 	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
+	UserDayLength = DayLengthWidget->MySlider->GetValue();
+}
+
+void UEUW_WeatherSelector::SetUserWeatherData()
+{
+	SetUserInputs();
+
+	UserDataStruct.dayLength = UserDayLength;
 
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
 	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
@@ -40,10 +50,14 @@ void UEUW_WeatherSelector::SetUserInputVariables()
 
 		//--DEBUGGING--
 		UserDataStruct.rainSpawnRate = 20000;
-		UserDataStruct.climate = UserClimate;
 		//--END DEBUGGING--
-		
-		Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
+
+		for(int j = 0; j < 50; j++)
+		{
+			UserDataStruct.rainSpawnRate = j * j;
+			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
+		}
+
 	}
 
 	UDataTable* MyDataTable = GenerateButton->GetDataTable();

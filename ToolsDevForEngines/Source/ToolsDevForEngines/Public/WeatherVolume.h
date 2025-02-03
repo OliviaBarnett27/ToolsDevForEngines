@@ -7,6 +7,7 @@
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
 #include "NiagaraSystem.h"
+#include "Containers/CircularQueue.h"
 #include "WeatherVolume.generated.h"
 
 struct FUserWeatherData;
@@ -36,6 +37,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
 	void SetUserWeatherData(FUserWeatherData WeatherData);
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<FUserWeatherData> MyWeatherQueue;
 	
 public:
 	float rainSpawnRate = 0.0f;

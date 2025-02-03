@@ -20,20 +20,21 @@ void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
 
-	UE_LOG(LogTemp, Display, TEXT("Rain spawn rate is: %f"), _VolumeData.rainSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("Niagara system: %s"), *_NS_RainComponent->GetAsset()->GetName());
-	
-	_NS_RainComponent->SetFloatParameter("SpawnRate", _VolumeData.rainSpawnRate);
+	for (int i = 0; i < MyWeatherQueue.Num(); i++ )
+	{
+		UE_LOG(LogTemp, Display, TEXT("Rain spawn rate is: %f"), MyWeatherQueue[i].rainSpawnRate);
+		_NS_RainComponent->SetFloatParameter("SpawnRate", _VolumeData.rainSpawnRate);
+	}
 }
 
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
-	_VolumeData.climate = WeatherData.climate;
+	_VolumeData.dayLength = WeatherData.dayLength;
 
-	
-	UE_LOG(LogTemp, Display, TEXT("Name: %s"), *_VolumeData.climate.ToString());
+	MyWeatherQueue.Add(_VolumeData);
 }
+
 
 
 
