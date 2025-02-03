@@ -19,6 +19,35 @@ TOOLSDEVFORENGINES_API UScriptStruct* Z_Construct_UScriptStruct_FUserWeatherData
 UPackage* Z_Construct_UPackage__Script_ToolsDevForEngines();
 // End Cross Module References
 
+// Begin Class AWeatherVolume Function SetNiagaraParameters
+struct Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeatherVolume, nullptr, "SetNiagaraParameters", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics::Function_MetaDataParams), Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AWeatherVolume::execSetNiagaraParameters)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetNiagaraParameters();
+	P_NATIVE_END;
+}
+// End Class AWeatherVolume Function SetNiagaraParameters
+
 // Begin Class AWeatherVolume Function SetUserWeatherData
 struct Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData_Statics
 {
@@ -62,12 +91,43 @@ DEFINE_FUNCTION(AWeatherVolume::execSetUserWeatherData)
 }
 // End Class AWeatherVolume Function SetUserWeatherData
 
+// Begin Class AWeatherVolume Function WeatherTransition
+struct Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeatherVolume, nullptr, "WeatherTransition", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics::Function_MetaDataParams), Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AWeatherVolume_WeatherTransition()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AWeatherVolume::execWeatherTransition)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->WeatherTransition();
+	P_NATIVE_END;
+}
+// End Class AWeatherVolume Function WeatherTransition
+
 // Begin Class AWeatherVolume
 void AWeatherVolume::StaticRegisterNativesAWeatherVolume()
 {
 	UClass* Class = AWeatherVolume::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "SetNiagaraParameters", &AWeatherVolume::execSetNiagaraParameters },
 		{ "SetUserWeatherData", &AWeatherVolume::execSetUserWeatherData },
+		{ "WeatherTransition", &AWeatherVolume::execWeatherTransition },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -112,7 +172,9 @@ struct Z_Construct_UClass_AWeatherVolume_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters, "SetNiagaraParameters" }, // 3636446522
 		{ &Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData, "SetUserWeatherData" }, // 1491838017
+		{ &Z_Construct_UFunction_AWeatherVolume_WeatherTransition, "WeatherTransition" }, // 1865933648
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -173,10 +235,10 @@ AWeatherVolume::~AWeatherVolume() {}
 struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 2661918964U) },
+		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 216078958U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_198672237(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_3677980180(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

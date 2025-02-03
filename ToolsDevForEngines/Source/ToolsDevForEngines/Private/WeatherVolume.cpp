@@ -20,11 +20,13 @@ void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
 
-	for (int i = 0; i < MyWeatherQueue.Num(); i++ )
-	{
-		UE_LOG(LogTemp, Display, TEXT("Rain spawn rate is: %f"), MyWeatherQueue[i].rainSpawnRate);
-		_NS_RainComponent->SetFloatParameter("SpawnRate", _VolumeData.rainSpawnRate);
-	}
+	SetNiagaraParameters(); //sets niagara parameters for the first array element
+
+	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
+	FTimerDelegate TimerDelegate;
+	TimerDelegate.BindUFunction(this, "WeatherTransition"); 
+	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TimerDelegate, 5.00, true);
+	//-----
 }
 
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
@@ -32,7 +34,30 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
 	_VolumeData.dayLength = WeatherData.dayLength;
 
-	MyWeatherQueue.Add(_VolumeData);
+	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
+}
+
+void AWeatherVolume::WeatherTransition()
+{
+	FUserWeatherData tempWeatherData =  MyWeatherQueue[currentWeatherIndex]; //used to hold the current struct so that it can be re-added to the array
+
+	MyWeatherQueue.RemoveAt(currentWeatherIndex); //removes the current struct, moving up the queue
+
+	MyWeatherQueue.Add(tempWeatherData); //adds the removed struct to the back of the queue
+
+	currentWeatherIndex++; 
+
+	if (currentWeatherIndex >= MyWeatherQueue.Num())
+	{
+		currentWeatherIndex = 0; //resets the indexer once the end of the queue has been reached, so that the weather queue cycles
+	}
+
+	SetNiagaraParameters(); 
+}
+
+void AWeatherVolume::SetNiagaraParameters()
+{
+	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 }
 
 

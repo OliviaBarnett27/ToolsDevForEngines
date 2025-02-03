@@ -37,8 +37,18 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
 	void SetUserWeatherData(FUserWeatherData WeatherData);
 
+	UFUNCTION(BlueprintCallable)
+	void WeatherTransition();
+
+	UFUNCTION(BlueprintCallable)
+	void SetNiagaraParameters();
+
+	float currentWeatherIndex = 0;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FUserWeatherData> MyWeatherQueue;
+
+	FTimerHandle TransitionTimer;
 	
 public:
 	float rainSpawnRate = 0.0f;

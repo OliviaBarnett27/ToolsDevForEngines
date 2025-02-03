@@ -28,7 +28,7 @@ void UEUW_WeatherSelector::SetUserInputs()
 {
 	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
-	UserDayLength = DayLengthWidget->MySlider->GetValue();
+	//UserDayLength = DayLengthWidget->MySlider->GetValue();
 }
 
 void UEUW_WeatherSelector::SetUserWeatherData()
