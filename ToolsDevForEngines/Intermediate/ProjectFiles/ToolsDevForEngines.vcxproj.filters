@@ -78,6 +78,9 @@
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_ClimateWidget.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_DayLengthWidget.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_DayNightWidget.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
@@ -106,6 +109,9 @@
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ClimateWidget.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayLengthWidget.h">
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayNightWidget.h">

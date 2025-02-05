@@ -55,6 +55,7 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 		for(int j = 0; j < 50; j++)
 		{
 			UserDataStruct.rainSpawnRate = j * j;
+			UserDataStruct.rainGravity.X = (j * j) * 100;
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
 
