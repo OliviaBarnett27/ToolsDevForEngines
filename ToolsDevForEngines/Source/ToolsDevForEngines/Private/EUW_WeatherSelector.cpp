@@ -48,6 +48,7 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 	{
 		AWeatherVolume* Volume = Cast<AWeatherVolume>(PlacedWeatherVolumes[i]); //cast to the weather volume
 
+		Volume->MyWeatherQueue.Empty();
 		//--DEBUGGING--
 		UserDataStruct.rainSpawnRate = 20000;
 		//--END DEBUGGING--
@@ -55,10 +56,10 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 		for(int j = 0; j < 50; j++)
 		{
 			UserDataStruct.rainSpawnRate = j * j;
-			UserDataStruct.rainGravity.X = (j * j) * 100;
+			UserDataStruct.rainGravity = FVector((j * j) * 100, 0, -750);
+			UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
-
 	}
 
 	UDataTable* MyDataTable = GenerateButton->GetDataTable();

@@ -20,6 +20,11 @@ void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
 
+	if (MyWeatherQueue.IsEmpty()) //if empty, the button hasn't been pressed. prevents crashing.
+	{
+		return;
+	}
+
 	SetNiagaraParameters(); //sets niagara parameters for the first array element
 
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
@@ -57,10 +62,13 @@ void AWeatherVolume::WeatherTransition()
 
 void AWeatherVolume::SetNiagaraParameters()
 {
+	UE_LOG(LogTemp, Display, TEXT("rainGravity Value: %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
+	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
-
+	
 	_NS_RainComponent->SetVectorParameter("RainGravity", MyWeatherQueue[currentWeatherIndex].rainGravity);
+	//_NS_RainComponent->SetVectorParameter("RainGravity", FVector(10000, 0, -750));
 	_NS_SnowComponent->SetVectorParameter("SnowGravity", MyWeatherQueue[currentWeatherIndex].snowGravity);
 }
 

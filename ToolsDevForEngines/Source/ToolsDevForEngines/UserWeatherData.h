@@ -17,5 +17,5 @@ struct FUserWeatherData
 	FVector snowGravity = FVector(0, 0, -750);
 	float dayLength;
 
-	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.0f){};
+	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.0f), rainGravity(FVector(0, 0, -750)) {};
 };
