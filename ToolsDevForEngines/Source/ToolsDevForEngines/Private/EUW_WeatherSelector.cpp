@@ -40,26 +40,25 @@ void UEUW_WeatherSelector::ReadDataTable()
 		return;
 	}
 	
-	RowPointer = WeatherDataTable->FindRowUnchecked(UserSeason);
-	FSeason* SeasonData = nullptr;;
-
-	if (!RowPointer)
+	FSeason* SeasonData = WeatherDataTable->FindRow<FSeason>(UserSeason, TEXT("Find Season Row"));
+	
+	//SeasonData = reinterpret_cast<FSeason*>(RowPointer); //casts the found row to the season struct
+	
+	if (!SeasonData)
 	{
+		UE_LOG(LogTemp, Log, TEXT("RSeason Data : %p"), SeasonData);
 		return;
 	}
-	
-	SeasonData = reinterpret_cast<FSeason*>(RowPointer); //casts the found row to the season struct
-	
-	//UE_LOG(LogTemp, Log, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
 
-	FClimate* ClimateData = SeasonData->ClimateMap.Find(UserClimate);
+	ClimateData = SeasonData->ClimateMap.Find(UserClimate);
 
 	if (!ClimateData)
 	{
+		UE_LOG(LogTemp, Log, TEXT("no climate data"));
 		return;
 	}
 
-	UE_LOG(LogTemp, Log, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
+	UE_LOG(LogTemp, Display, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
 }
 
 void UEUW_WeatherSelector::GetDataTableRow()
@@ -86,12 +85,13 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 
 		Volume->MyWeatherQueue.Empty();
 		//--DEBUGGING--
-		UserDataStruct.rainSpawnRate = 20000;
+		//UserDataStruct.rainSpawnRate = 20000;
 		//--END DEBUGGING--
 
 		for(int j = 0; j < 50; j++)
 		{
-			UserDataStruct.rainSpawnRate = j * j;
+			//UserDataStruct.rainSpawnRate = j *j;
+			UserDataStruct.rainSpawnRate = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
 			UserDataStruct.rainGravity = FVector((j * j) * 100, 0, -750);
 			//UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance

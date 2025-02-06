@@ -8,6 +8,7 @@
 #include "ToolsDevForEngines/UserWeatherData.h"
 #include "EUW_WeatherSelector.generated.h"
 
+struct FClimate;
 class UW_DayLengthWidget;
 class UW_DayNightWidget;
 class UW_ClimateWidget;
@@ -69,4 +70,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void GetDataTableRow();
+
+	FClimate* ClimateData;
 };

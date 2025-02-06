@@ -10,11 +10,13 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeClimate() {}
 
 // Begin Cross Module References
+ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FTableRowBase();
 TOOLSDEVFORENGINES_API UScriptStruct* Z_Construct_UScriptStruct_FClimate();
 UPackage* Z_Construct_UPackage__Script_ToolsDevForEngines();
 // End Cross Module References
 
 // Begin ScriptStruct FClimate
+static_assert(std::is_polymorphic<FClimate>() == std::is_polymorphic<FTableRowBase>(), "USTRUCT FClimate cannot be polymorphic unless super FTableRowBase is polymorphic");
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_Climate;
 class UScriptStruct* FClimate::StaticStruct()
 {
@@ -128,7 +130,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FC
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FClimate_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FClimate_Statics::StructParams = {
 	(UObject* (*)())Z_Construct_UPackage__Script_ToolsDevForEngines,
-	nullptr,
+	Z_Construct_UScriptStruct_FTableRowBase,
 	&NewStructOps,
 	"Climate",
 	Z_Construct_UScriptStruct_FClimate_Statics::PropPointers,
@@ -153,10 +155,10 @@ UScriptStruct* Z_Construct_UScriptStruct_FClimate()
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FClimate::StaticStruct, Z_Construct_UScriptStruct_FClimate_Statics::NewStructOps, TEXT("Climate"), &Z_Registration_Info_UScriptStruct_Climate, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClimate), 2071955736U) },
+		{ FClimate::StaticStruct, Z_Construct_UScriptStruct_FClimate_Statics::NewStructOps, TEXT("Climate"), &Z_Registration_Info_UScriptStruct_Climate, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FClimate), 3898670856U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_2934999756(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_3346243637(TEXT("/Script/ToolsDevForEngines"),
 	nullptr, 0,
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_Statics::ScriptStructInfo),
 	nullptr, 0);

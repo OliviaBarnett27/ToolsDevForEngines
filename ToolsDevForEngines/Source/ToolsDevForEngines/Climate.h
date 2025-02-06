@@ -6,7 +6,7 @@
 #include "Climate.generated.h"
 
 USTRUCT(BlueprintType)
-struct FClimate
+struct FClimate : public FTableRowBase
 {
 	GENERATED_BODY()
 	

@@ -14,9 +14,10 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TOOLSDEVFORENGINES_Season_generated_h
 
-#define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Season_h_12_GENERATED_BODY \
+#define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Season_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FSeason_Statics; \
-	TOOLSDEVFORENGINES_API static class UScriptStruct* StaticStruct();
+	TOOLSDEVFORENGINES_API static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
 
 
 template<> TOOLSDEVFORENGINES_API UScriptStruct* StaticStruct<struct FSeason>();

@@ -16,7 +16,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 #define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Climate_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FClimate_Statics; \
-	TOOLSDEVFORENGINES_API static class UScriptStruct* StaticStruct();
+	TOOLSDEVFORENGINES_API static class UScriptStruct* StaticStruct(); \
+	typedef FTableRowBase Super;
 
 
 template<> TOOLSDEVFORENGINES_API UScriptStruct* StaticStruct<struct FClimate>();

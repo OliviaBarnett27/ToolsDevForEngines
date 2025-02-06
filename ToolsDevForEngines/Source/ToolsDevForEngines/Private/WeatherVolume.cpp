@@ -62,7 +62,8 @@ void AWeatherVolume::WeatherTransition()
 
 void AWeatherVolume::SetNiagaraParameters()
 {
-	UE_LOG(LogTemp, Display, TEXT("rainGravity Value: %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
+	//UE_LOG(LogTemp, Display, TEXT("rainGravity Value: %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
