@@ -2,7 +2,6 @@
 
 
 #include "EUW_WeatherSelector.h"
-
 #include "WeatherVolume.h"
 #include "W_ClimateWidget.h"
 #include "W_DayLengthWidget.h"
@@ -12,15 +11,18 @@
 #include "Components/ComboBoxString.h"
 #include "Components/Slider.h"
 #include "Components/TextBlock.h"
+#include "ToolsDevForEngines/Season.h"
+
+
+struct FClimate;
+struct FSeason;
 
 void UEUW_WeatherSelector::NativeConstruct()
 {
 	Super::NativeConstruct();
 
 	UtilityTitle->SetText(FText::FromString("Weather Selector"));
-	
 	OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
-
 	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
 }
 
@@ -31,13 +33,47 @@ void UEUW_WeatherSelector::SetUserInputs()
 	//UserDayLength = DayLengthWidget->MySlider->GetValue();
 }
 
+void UEUW_WeatherSelector::ReadDataTable()
+{
+	if (!WeatherDataTable)
+	{
+		return;
+	}
+	
+	RowPointer = WeatherDataTable->FindRowUnchecked(UserSeason);
+	FSeason* SeasonData = nullptr;;
+
+	if (!RowPointer)
+	{
+		return;
+	}
+	
+	SeasonData = reinterpret_cast<FSeason*>(RowPointer); //casts the found row to the season struct
+	
+	//UE_LOG(LogTemp, Log, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
+
+	FClimate* ClimateData = SeasonData->ClimateMap.Find(UserClimate);
+
+	if (!ClimateData)
+	{
+		return;
+	}
+
+	UE_LOG(LogTemp, Log, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
+}
+
+void UEUW_WeatherSelector::GetDataTableRow()
+{
+
+}
+
 void UEUW_WeatherSelector::SetUserWeatherData()
 {
 	SetUserInputs();
-
+	ReadDataTable();
 	UserDataStruct.dayLength = UserDayLength;
-
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
+	
 	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
 	{
 		UE_LOG(LogTemp, Warning, TEXT("No placed volume"));
@@ -57,7 +93,7 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 		{
 			UserDataStruct.rainSpawnRate = j * j;
 			UserDataStruct.rainGravity = FVector((j * j) * 100, 0, -750);
-			UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
+			//UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
 	}

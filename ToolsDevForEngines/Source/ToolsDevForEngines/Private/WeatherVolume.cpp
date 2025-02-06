@@ -20,7 +20,7 @@ void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (MyWeatherQueue.IsEmpty()) //if empty, the button hasn't been pressed. prevents crashing.
+	if (MyWeatherQueue.IsEmpty()) //if it's empty, the button hasn't been pressed. prevents crashing.
 	{
 		return;
 	}

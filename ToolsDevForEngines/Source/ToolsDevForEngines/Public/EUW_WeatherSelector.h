@@ -9,7 +9,6 @@
 #include "EUW_WeatherSelector.generated.h"
 
 class UW_DayLengthWidget;
-struct FUserWeatherData;
 class UW_DayNightWidget;
 class UW_ClimateWidget;
 class UCanvasPanel;
@@ -30,7 +29,9 @@ public:
 	FName UserClimate;
 	FName UserSeason;
 	float UserDayLength;
-	
+	uint8* RowPointer;
+
+	//-----Widgets
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UCanvasPanel> Canvas;
 	UPROPERTY(meta = (BindWidget))
@@ -46,15 +47,26 @@ public:
 	UPROPERTY(meta = (BindWidget)) 
 	TObjectPtr<UW_GenerateButton> GenerateButton;
 
-	UFUNCTION(BlueprintCallable)
-	void SetUserWeatherData();
-
-	UFUNCTION(BlueprintCallable)
-	void SetUserInputs();
-
+	//------UPROPERTIES
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FUserWeatherData UserDataStruct;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UDataTable* WeatherDataTable;
+
+	//------UFUNCTIONS
+	UFUNCTION(BlueprintCallable)
+	void SetUserWeatherData();
+    
+	UFUNCTION(BlueprintCallable)
+	void SetUserInputs();
+
+	UFUNCTION(BlueprintCallable)
+	void ReadDataTable();
+
+	UFUNCTION(BlueprintCallable)
+	void GetDataTableRow();
 };

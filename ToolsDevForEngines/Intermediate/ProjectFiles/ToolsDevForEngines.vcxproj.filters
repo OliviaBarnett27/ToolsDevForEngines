@@ -33,6 +33,12 @@
     <Filter Include="Source\ToolsDevForEngines">
       <UniqueIdentifier>{3BDC1CDC-C2F0-3D06-8C68-12E9291A0560}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Climate.h">
+      <Filter>Source\ToolsDevForEngines</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Season.h">
+      <Filter>Source\ToolsDevForEngines</Filter>
+    </ClInclude>
     <None Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.Build.cs">
       <Filter>Source\ToolsDevForEngines</Filter>
     </None>

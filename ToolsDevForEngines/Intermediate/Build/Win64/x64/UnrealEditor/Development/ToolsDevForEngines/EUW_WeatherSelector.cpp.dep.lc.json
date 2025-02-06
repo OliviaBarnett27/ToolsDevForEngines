@@ -133,7 +133,11 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\umg\\public\\components\\textblock.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\umg\\public\\components\\textwidgettypes.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textwidgettypes.generated.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textblock.generated.h"
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textblock.generated.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\season.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\climate.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\climate.generated.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\season.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []
