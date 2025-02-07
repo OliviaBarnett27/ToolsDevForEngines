@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "DayNightCycle.h"
 #include "EUW_WeatherSelector.h"
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"
@@ -10,6 +11,7 @@
 #include "Containers/CircularQueue.h"
 #include "WeatherVolume.generated.h"
 
+class ADayNightCycle;
 struct FUserWeatherData;
 
 UCLASS()
@@ -25,6 +27,8 @@ protected:
 	virtual void BeginPlay() override;
 
 public:
+
+	//---------- UPROPERTIES
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_RainComponent;
 
@@ -34,6 +38,13 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weather Data")
 	FUserWeatherData _VolumeData;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	TArray<FUserWeatherData> MyWeatherQueue;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	ADayNightCycle* DayNightCycle;
+
+	//---------- UFUNCTIONS
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
 	void SetUserWeatherData(FUserWeatherData WeatherData);
 
@@ -43,13 +54,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetNiagaraParameters();
 
+	//---------- variables
 	float currentWeatherIndex = 0;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly)
-	TArray<FUserWeatherData> MyWeatherQueue;
-
 	FTimerHandle TransitionTimer;
-	
-public:
 	float rainSpawnRate = 0.0f;
 };

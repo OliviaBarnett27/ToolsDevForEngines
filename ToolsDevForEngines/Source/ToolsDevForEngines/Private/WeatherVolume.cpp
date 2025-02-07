@@ -24,21 +24,24 @@ void AWeatherVolume::BeginPlay()
 	{
 		return;
 	}
-
+	
 	SetNiagaraParameters(); //sets niagara parameters for the first array element
 
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
 	FTimerDelegate TimerDelegate;
 	TimerDelegate.BindUFunction(this, "WeatherTransition"); 
 	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TimerDelegate, 5.00, true);
+	
 	//-----
 }
 
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
-	_VolumeData.dayLength = WeatherData.dayLength;
+	_VolumeData.dayNightCycle = WeatherData.dayNightCycle;
 
+	DayNightCycle->enableDayNightCycle = _VolumeData.dayNightCycle;
+	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
 }
 

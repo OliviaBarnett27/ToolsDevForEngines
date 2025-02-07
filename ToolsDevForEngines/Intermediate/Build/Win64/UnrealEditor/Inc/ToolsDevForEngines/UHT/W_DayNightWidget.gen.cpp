@@ -55,7 +55,7 @@ struct Z_Construct_UClass_UW_DayNightWidget_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/W_DayNightWidget.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CheckBox_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MyCheckBox_MetaData[] = {
 		{ "BindWidget", "" },
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/W_DayNightWidget.h" },
@@ -69,7 +69,7 @@ struct Z_Construct_UClass_UW_DayNightWidget_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_HorizontalBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Title;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Border;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_CheckBox;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MyCheckBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Spacer;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
@@ -78,16 +78,16 @@ struct Z_Construct_UClass_UW_DayNightWidget_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_HorizontalBox = { "HorizontalBox", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, HorizontalBox), Z_Construct_UClass_UHorizontalBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HorizontalBox_MetaData), NewProp_HorizontalBox_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Title = { "Title", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Title), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Title_MetaData), NewProp_Title_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Border = { "Border", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Border), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Border_MetaData), NewProp_Border_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_CheckBox = { "CheckBox", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, CheckBox), Z_Construct_UClass_UCheckBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CheckBox_MetaData), NewProp_CheckBox_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Spacer = { "Spacer", nullptr, (EPropertyFlags)0x0144000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Spacer), Z_Construct_UClass_USpacer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spacer_MetaData), NewProp_Spacer_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_HorizontalBox = { "HorizontalBox", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, HorizontalBox), Z_Construct_UClass_UHorizontalBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HorizontalBox_MetaData), NewProp_HorizontalBox_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Title = { "Title", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Title), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Title_MetaData), NewProp_Title_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Border = { "Border", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Border), Z_Construct_UClass_UBorder_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Border_MetaData), NewProp_Border_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_MyCheckBox = { "MyCheckBox", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, MyCheckBox), Z_Construct_UClass_UCheckBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MyCheckBox_MetaData), NewProp_MyCheckBox_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Spacer = { "Spacer", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayNightWidget, Spacer), Z_Construct_UClass_USpacer_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spacer_MetaData), NewProp_Spacer_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UW_DayNightWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_HorizontalBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Title,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Border,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_CheckBox,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_MyCheckBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayNightWidget_Statics::NewProp_Spacer,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UW_DayNightWidget_Statics::PropPointers) < 2048);
@@ -129,14 +129,14 @@ UW_DayNightWidget::~UW_DayNightWidget() {}
 // End Class UW_DayNightWidget
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UW_DayNightWidget, UW_DayNightWidget::StaticClass, TEXT("UW_DayNightWidget"), &Z_Registration_Info_UClass_UW_DayNightWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_DayNightWidget), 2485567305U) },
+		{ Z_Construct_UClass_UW_DayNightWidget, UW_DayNightWidget::StaticClass, TEXT("UW_DayNightWidget"), &Z_Registration_Info_UClass_UW_DayNightWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_DayNightWidget), 4232145978U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_483800676(TEXT("/Script/ToolsDevForEngines"),
-	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_399034838(TEXT("/Script/ToolsDevForEngines"),
+	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayNightWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

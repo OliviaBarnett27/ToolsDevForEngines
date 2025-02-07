@@ -21,6 +21,7 @@ class TOOLSDEVFORENGINES_API UW_DayNightWidget : public UUserWidget
 
 	virtual void NativeConstruct() override;
 
+public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UHorizontalBox> HorizontalBox;
 	UPROPERTY(meta = (BindWidget))
@@ -28,7 +29,7 @@ class TOOLSDEVFORENGINES_API UW_DayNightWidget : public UUserWidget
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UBorder> Border;
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<UCheckBox> CheckBox;
+	TObjectPtr<UCheckBox> MyCheckBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USpacer> Spacer;
 };

@@ -56,12 +56,18 @@ struct Z_Construct_UScriptStruct_FUserWeatherData_Statics
 		{ "Category", "UserWeatherData" },
 		{ "ModuleRelativePath", "UserWeatherData.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_dayNightCycle_MetaData[] = {
+		{ "Category", "UserWeatherData" },
+		{ "ModuleRelativePath", "UserWeatherData.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_rainSpawnRate;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_snowSpawnRate;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_rainGravity;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_snowGravity;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_dayLength;
+	static void NewProp_dayNightCycle_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_dayNightCycle;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -74,12 +80,18 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FUserWea
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_rainGravity = { "rainGravity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserWeatherData, rainGravity), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_rainGravity_MetaData), NewProp_rainGravity_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_snowGravity = { "snowGravity", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserWeatherData, snowGravity), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_snowGravity_MetaData), NewProp_snowGravity_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayLength = { "dayLength", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FUserWeatherData, dayLength), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_dayLength_MetaData), NewProp_dayLength_MetaData) };
+void Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayNightCycle_SetBit(void* Obj)
+{
+	((FUserWeatherData*)Obj)->dayNightCycle = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayNightCycle = { "dayNightCycle", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FUserWeatherData), &Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayNightCycle_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_dayNightCycle_MetaData), NewProp_dayNightCycle_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FUserWeatherData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_rainSpawnRate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_snowSpawnRate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_rainGravity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_snowGravity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayLength,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewProp_dayNightCycle,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FUserWeatherData_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FUserWeatherData_Statics::StructParams = {
@@ -106,15 +118,15 @@ UScriptStruct* Z_Construct_UScriptStruct_FUserWeatherData()
 // End ScriptStruct FUserWeatherData
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics
+struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FUserWeatherData::StaticStruct, Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewStructOps, TEXT("UserWeatherData"), &Z_Registration_Info_UScriptStruct_UserWeatherData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUserWeatherData), 999136951U) },
+		{ FUserWeatherData::StaticStruct, Z_Construct_UScriptStruct_FUserWeatherData_Statics::NewStructOps, TEXT("UserWeatherData"), &Z_Registration_Info_UScriptStruct_UserWeatherData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FUserWeatherData), 1483438220U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_612948601(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_1351612205(TEXT("/Script/ToolsDevForEngines"),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics::ScriptStructInfo),
+	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

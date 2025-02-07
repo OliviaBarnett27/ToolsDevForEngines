@@ -30,6 +30,7 @@ public:
 	FName UserClimate;
 	FName UserSeason;
 	float UserDayLength;
+	bool UserDayNight;
 	uint8* RowPointer;
 
 	//-----Widgets
@@ -67,9 +68,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ReadDataTable();
-
-	UFUNCTION(BlueprintCallable)
-	void GetDataTableRow();
 
 	FClimate* ClimateData;
 };
