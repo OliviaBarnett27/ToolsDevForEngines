@@ -11,6 +11,7 @@
 #include "Containers/CircularQueue.h"
 #include "WeatherVolume.generated.h"
 
+class UDayNightComponent;
 class ADayNightCycle;
 struct FUserWeatherData;
 
@@ -35,14 +36,14 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_SnowComponent;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	TObjectPtr<UDayNightComponent> _DayNightComponent;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weather Data")
 	FUserWeatherData _VolumeData;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FUserWeatherData> MyWeatherQueue;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	ADayNightCycle* DayNightCycle;
 
 	//---------- UFUNCTIONS
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")

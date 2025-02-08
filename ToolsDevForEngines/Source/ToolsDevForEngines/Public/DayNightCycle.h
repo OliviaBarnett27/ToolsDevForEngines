@@ -17,6 +17,18 @@ public:
 	// Sets default values for this actor's properties
 	ADayNightCycle();
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	AActor* sun;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	ADirectionalLight* lightSource;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	float turnRate;
+
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool enableDayNightCycle;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -24,18 +36,5 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	UPROPERTY(EditAnywhere)
-	AActor* sun;
-
-	UPROPERTY(EditAnywhere)
-	ADirectionalLight* lightSource;
-
-	UPROPERTY(EditAnywhere)
-	float turnRate;
-
-	UPROPERTY(EditAnywhere)
-	bool enableDayNightCycle;
-
-	int counter = 0;
+	
 };

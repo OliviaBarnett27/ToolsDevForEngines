@@ -2,6 +2,8 @@
 
 
 #include "WeatherVolume.h"
+
+#include "DayNightComponent.h"
 #include "EUW_WeatherSelector.h"
 
 
@@ -13,6 +15,8 @@ AWeatherVolume::AWeatherVolume()
 	
 	_NS_SnowComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Snow Component"));
 	_NS_SnowComponent-> SetupAttachment(RootComponent);
+
+	_DayNightComponent = CreateDefaultSubobject<UDayNightComponent>(TEXT("Day Night Component"));
 }
 
 // Called when the game starts or when spawned
@@ -40,7 +44,7 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
 	_VolumeData.dayNightCycle = WeatherData.dayNightCycle;
 
-	DayNightCycle->enableDayNightCycle = _VolumeData.dayNightCycle;
+	_DayNightComponent->enableDayNightCycle = _VolumeData.dayNightCycle;
 	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
 }

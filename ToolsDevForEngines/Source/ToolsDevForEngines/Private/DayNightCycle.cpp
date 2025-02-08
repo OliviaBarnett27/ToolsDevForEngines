@@ -38,7 +38,6 @@ void ADayNightCycle::Tick(float DeltaTime)
 			sun->CallFunctionByNameWithArguments(TEXT("UpdateSunDirection"), ar, NULL, true);
 
 		}
-		counter++;
 		//UE_LOG(LogTemp, Display, TEXT("in loop, %d"), counter);
 	}
 }

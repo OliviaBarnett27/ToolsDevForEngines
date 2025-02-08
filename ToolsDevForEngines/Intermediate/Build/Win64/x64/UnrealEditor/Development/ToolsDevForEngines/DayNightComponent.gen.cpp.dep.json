@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\daynightcomponent.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\toolsdevforengineseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\toolsdevforengines\\definitions.toolsdevforengines.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\daynightcomponent.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\daynightcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

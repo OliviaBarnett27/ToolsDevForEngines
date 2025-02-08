@@ -52,7 +52,7 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 		for(int j = 0; j < 50; j++)
 		{
 			UserDataStruct.rainSpawnRate = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
-			UserDataStruct.rainGravity = FVector((j * j) * 100, 0, -750);
+			UserDataStruct.rainGravity = FVector(((j * j) * 100), 0, -750);
 			//UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
