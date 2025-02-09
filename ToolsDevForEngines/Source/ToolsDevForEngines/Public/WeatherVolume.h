@@ -53,10 +53,11 @@ public:
 	void WeatherTransition();
 
 	UFUNCTION(BlueprintCallable)
-	void SetNiagaraParameters();
+	void SetNiagaraParameters(); 
 
 	//---------- variables
 	float currentWeatherIndex = 0;
 	FTimerHandle TransitionTimer;
 	float rainSpawnRate = 0.0f;
+	FVector rainGravity = FVector::ZeroVector;
 };

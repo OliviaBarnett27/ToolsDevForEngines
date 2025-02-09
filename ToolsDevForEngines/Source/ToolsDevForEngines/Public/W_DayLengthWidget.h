@@ -6,12 +6,11 @@
 #include "Blueprint/UserWidget.h"
 #include "W_DayLengthWidget.generated.h"
 
+class USpinBox;
 class UTextBlock;
 class USlider;
 class UHorizontalBox;
-/**
- * 
- */
+
 UCLASS()
 class TOOLSDEVFORENGINES_API UW_DayLengthWidget : public UUserWidget
 {
@@ -24,4 +23,6 @@ public:
 	TObjectPtr<UTextBlock> Title;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USlider> MySlider;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<USpinBox> MySpinBox;
 };

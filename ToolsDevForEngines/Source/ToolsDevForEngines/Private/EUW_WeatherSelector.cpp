@@ -12,6 +12,7 @@
 #include "Components/CheckBox.h"
 #include "Components/ComboBoxString.h"
 #include "Components/Slider.h"
+#include "Components/SpinBox.h"
 #include "Components/TextBlock.h"
 #include "ToolsDevForEngines/Season.h"
 
@@ -33,8 +34,10 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 {
 	SetUserInputs();
 	ReadDataTable();
-	UserDataStruct.dayLength = UserDayLength;
+	
+	//UserDataStruct.dayLength = UserDayLength;
 	UserDataStruct.dayNightCycle = UserDayNight;
+	
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
 	
 	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
@@ -51,7 +54,26 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 
 		for(int j = 0; j < 50; j++)
 		{
-			UserDataStruct.rainSpawnRate = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
+			float randomRain  = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
+			if (randomRain < 20)
+			{
+				UserDataStruct.rainSpawnRate = randomRain;
+			}
+			else if (randomRain >= 20 && randomRain < 50)
+			{
+				UserDataStruct.rainSpawnRate = randomRain * 10;
+			}
+			else if (randomRain >= 50 && randomRain < 75) 
+			{
+				UserDataStruct.rainSpawnRate = randomRain * 50;
+			}
+			else
+			{
+				UserDataStruct.rainSpawnRate = randomRain * 150;
+			}
+
+			UE_LOG(LogTemp, Display, TEXT("randomRain = %f || rain spawn rate = %f"), randomRain, UserDataStruct.rainSpawnRate);
+			
 			UserDataStruct.rainGravity = FVector(((j * j) * 100), 0, -750);
 			//UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
@@ -62,10 +84,29 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 //----------------------------------------------------------------Set User Inputs
 void UEUW_WeatherSelector::SetUserInputs()
 {
+
+	if (!DayLengthWidget->MySlider)
+	{
+		UE_LOG(LogTemp, Error, TEXT("no user day length WIDGET SLIDER"));
+	}
+
+	if (!UserDayLength)
+	{
+		UE_LOG(LogTemp, Error, TEXT("no user day length ???????"));
+	}
 	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 	UserDayNight = DayNightWidget->MyCheckBox->IsChecked();
-	//UserDayLength = DayLengthWidget->MySlider->GetValue();
+	/*float SliderValue = DayLengthWidget->MySlider->GetValue();
+	if (SliderValue != 0.0f)
+	{
+		UserDayLength = SliderValue * 100;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("no value :("));
+	}*/
+	//UserDayLength = DayLengthWidget->MySpinBox->GetValue();
 }
 
 //----------------------------------------------------------------Read Data Table

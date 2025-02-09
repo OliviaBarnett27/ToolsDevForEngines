@@ -14,6 +14,7 @@ TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_DayLengthWidget();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_DayLengthWidget_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UHorizontalBox_NoRegister();
 UMG_API UClass* Z_Construct_UClass_USlider_NoRegister();
+UMG_API UClass* Z_Construct_UClass_USpinBox_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UTextBlock_NoRegister();
 UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_ToolsDevForEngines();
@@ -32,9 +33,6 @@ struct Z_Construct_UClass_UW_DayLengthWidget_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
-#endif
 		{ "IncludePath", "W_DayLengthWidget.h" },
 		{ "ModuleRelativePath", "Public/W_DayLengthWidget.h" },
 	};
@@ -53,10 +51,16 @@ struct Z_Construct_UClass_UW_DayLengthWidget_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/W_DayLengthWidget.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MySpinBox_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/W_DayLengthWidget.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_HorizontalBox;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_Title;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_MySlider;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_MySpinBox;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -67,10 +71,12 @@ struct Z_Construct_UClass_UW_DayLengthWidget_Statics
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_HorizontalBox = { "HorizontalBox", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayLengthWidget, HorizontalBox), Z_Construct_UClass_UHorizontalBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_HorizontalBox_MetaData), NewProp_HorizontalBox_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_Title = { "Title", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayLengthWidget, Title), Z_Construct_UClass_UTextBlock_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Title_MetaData), NewProp_Title_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_MySlider = { "MySlider", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayLengthWidget, MySlider), Z_Construct_UClass_USlider_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MySlider_MetaData), NewProp_MySlider_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_MySpinBox = { "MySpinBox", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UW_DayLengthWidget, MySpinBox), Z_Construct_UClass_USpinBox_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MySpinBox_MetaData), NewProp_MySpinBox_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UW_DayLengthWidget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_HorizontalBox,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_Title,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_MySlider,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UW_DayLengthWidget_Statics::NewProp_MySpinBox,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UW_DayLengthWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UW_DayLengthWidget_Statics::DependentSingletons[])() = {
@@ -114,10 +120,10 @@ UW_DayLengthWidget::~UW_DayLengthWidget() {}
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayLengthWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UW_DayLengthWidget, UW_DayLengthWidget::StaticClass, TEXT("UW_DayLengthWidget"), &Z_Registration_Info_UClass_UW_DayLengthWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_DayLengthWidget), 2799902828U) },
+		{ Z_Construct_UClass_UW_DayLengthWidget, UW_DayLengthWidget::StaticClass, TEXT("UW_DayLengthWidget"), &Z_Registration_Info_UClass_UW_DayLengthWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UW_DayLengthWidget), 2693235566U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayLengthWidget_h_1832825251(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayLengthWidget_h_3514868910(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayLengthWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_W_DayLengthWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

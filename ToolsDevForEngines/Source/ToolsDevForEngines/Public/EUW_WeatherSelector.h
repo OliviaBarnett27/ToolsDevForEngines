@@ -29,7 +29,7 @@ class TOOLSDEVFORENGINES_API UEUW_WeatherSelector : public UEditorUtilityWidget,
 public:
 	FName UserClimate;
 	FName UserSeason;
-	float UserDayLength;
+	float UserDayLength = 0.1f;
 	bool UserDayNight;
 	uint8* RowPointer;
 

@@ -42,8 +42,10 @@ void AWeatherVolume::BeginPlay()
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
+	_VolumeData.rainGravity = WeatherData.rainGravity;
 	_VolumeData.dayNightCycle = WeatherData.dayNightCycle;
-
+	_VolumeData.snowSpawnRate = WeatherData.snowSpawnRate;
+	_VolumeData.snowGravity = WeatherData.snowGravity;
 	_DayNightComponent->enableDayNightCycle = _VolumeData.dayNightCycle;
 	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
