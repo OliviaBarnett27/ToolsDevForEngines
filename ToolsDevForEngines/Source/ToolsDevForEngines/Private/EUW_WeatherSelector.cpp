@@ -6,6 +6,7 @@
 #include "W_ClimateWidget.h"
 #include "W_DayLengthWidget.h"
 #include "W_DayNightWidget.h"
+#include "W_ErraticismWidget.h"
 #include "W_GenerateButton.h"
 #include "W_SeasonWidget.h"
 #include "Components/Button.h"
@@ -85,6 +86,7 @@ void UEUW_WeatherSelector::SetUserInputs()
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 	UserDayNight = DayNightWidget->MyCheckBox->IsChecked();
 	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
+	UserErraticism = ErraticismWidget->MySpinBox->GetValue();
 
 	
 }

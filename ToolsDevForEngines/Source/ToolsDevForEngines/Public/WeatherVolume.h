@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "DayNightCycle.h"
 #include "EUW_WeatherSelector.h"
 #include "GameFramework/Volume.h"
 #include "NiagaraComponent.h"

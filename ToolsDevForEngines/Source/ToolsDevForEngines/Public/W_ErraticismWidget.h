@@ -6,6 +6,8 @@
 #include "Blueprint/UserWidget.h"
 #include "W_ErraticismWidget.generated.h"
 
+class USpacer;
+class USpinBox;
 class UTextBlock;
 class USlider;
 class UHorizontalBox;
@@ -17,11 +19,15 @@ class TOOLSDEVFORENGINES_API UW_ErraticismWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+	virtual void NativeConstruct() override;
+
 public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UHorizontalBox> HorizontalBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Title;
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<USlider> MySlider;
+	TObjectPtr<USpinBox> MySpinBox;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<USpacer> Spacer;
 };

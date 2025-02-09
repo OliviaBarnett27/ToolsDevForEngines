@@ -8,6 +8,7 @@
 #include "ToolsDevForEngines/UserWeatherData.h"
 #include "EUW_WeatherSelector.generated.h"
 
+class UW_ErraticismWidget;
 struct FClimate;
 class UW_DayLengthWidget;
 class UW_DayNightWidget;
@@ -31,6 +32,7 @@ public:
 	FName UserSeason;
 	float UserDayLength = 0.1f;
 	bool UserDayNight;
+	float UserErraticism;
 	uint8* RowPointer;
 
 	//-----Widgets
@@ -48,6 +50,8 @@ public:
 	TObjectPtr<UW_DayLengthWidget> DayLengthWidget;
 	UPROPERTY(meta = (BindWidget)) 
 	TObjectPtr<UW_GenerateButton> GenerateButton;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<UW_ErraticismWidget> ErraticismWidget;
 
 	//------UPROPERTIES
 	UPROPERTY(BlueprintAssignable)

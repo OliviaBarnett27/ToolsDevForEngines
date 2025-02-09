@@ -19,6 +19,7 @@ TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UI_WeatherCalculations_NoRegis
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_ClimateWidget_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_DayLengthWidget_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_DayNightWidget_NoRegister();
+TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_ErraticismWidget_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_GenerateButton_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UW_SeasonWidget_NoRegister();
 TOOLSDEVFORENGINES_API UFunction* Z_Construct_UDelegateFunction_ToolsDevForEngines_OnGenerateWeatherButtonClickedSignature__DelegateSignature();
@@ -211,6 +212,11 @@ struct Z_Construct_UClass_UEUW_WeatherSelector_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ErraticismWidget_MetaData[] = {
+		{ "BindWidget", "" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnGenerateWeatherButtonClickedDelegate_MetaData[] = {
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "//------UPROPERTIES\n" },
@@ -236,6 +242,7 @@ struct Z_Construct_UClass_UEUW_WeatherSelector_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DayNightWidget;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DayLengthWidget;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_GenerateButton;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ErraticismWidget;
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnGenerateWeatherButtonClickedDelegate;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_UserDataStruct;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_WeatherDataTable;
@@ -260,6 +267,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSe
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_DayNightWidget = { "DayNightWidget", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, DayNightWidget), Z_Construct_UClass_UW_DayNightWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DayNightWidget_MetaData), NewProp_DayNightWidget_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_DayLengthWidget = { "DayLengthWidget", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, DayLengthWidget), Z_Construct_UClass_UW_DayLengthWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DayLengthWidget_MetaData), NewProp_DayLengthWidget_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_GenerateButton = { "GenerateButton", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, GenerateButton), Z_Construct_UClass_UW_GenerateButton_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GenerateButton_MetaData), NewProp_GenerateButton_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_ErraticismWidget = { "ErraticismWidget", nullptr, (EPropertyFlags)0x0114000000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, ErraticismWidget), Z_Construct_UClass_UW_ErraticismWidget_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ErraticismWidget_MetaData), NewProp_ErraticismWidget_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_OnGenerateWeatherButtonClickedDelegate = { "OnGenerateWeatherButtonClickedDelegate", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, OnGenerateWeatherButtonClickedDelegate), Z_Construct_UDelegateFunction_ToolsDevForEngines_OnGenerateWeatherButtonClickedSignature__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnGenerateWeatherButtonClickedDelegate_MetaData), NewProp_OnGenerateWeatherButtonClickedDelegate_MetaData) }; // 1436648759
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_UserDataStruct = { "UserDataStruct", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, UserDataStruct), Z_Construct_UScriptStruct_FUserWeatherData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_UserDataStruct_MetaData), NewProp_UserDataStruct_MetaData) }; // 1483438220
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_WeatherDataTable = { "WeatherDataTable", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEUW_WeatherSelector, WeatherDataTable), Z_Construct_UClass_UDataTable_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WeatherDataTable_MetaData), NewProp_WeatherDataTable_MetaData) };
@@ -271,6 +279,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEUW_Weat
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_DayNightWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_DayLengthWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_GenerateButton,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_ErraticismWidget,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_OnGenerateWeatherButtonClickedDelegate,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_UserDataStruct,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEUW_WeatherSelector_Statics::NewProp_WeatherDataTable,
@@ -320,10 +329,10 @@ UEUW_WeatherSelector::~UEUW_WeatherSelector() {}
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 403898310U) },
+		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 1524808218U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_4236570883(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_2087609464(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
