@@ -5,12 +5,13 @@
 
 #include "DayNightComponent.h"
 #include "EUW_WeatherSelector.h"
+#include "Components/BrushComponent.h"
 
 
 // Sets default values
 AWeatherVolume::AWeatherVolume()
 {
-	this->SetHidden(false);
+	GetBrushComponent()->SetVisibility(true);
 	
 	_NS_RainComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Rain Component"));
 	_NS_RainComponent-> SetupAttachment(RootComponent);
@@ -46,16 +47,11 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 	_VolumeData.rainGravity = WeatherData.rainGravity;
 	_VolumeData.snowSpawnRate = WeatherData.snowSpawnRate;
 	_VolumeData.snowGravity = WeatherData.snowGravity;
-
-	if (!_DayNightComponent)
-	{
-		UE_LOG(LogTemp, Display, TEXT("no"));
-	}
 	
 	_VolumeData.dayNightCycle = WeatherData.dayNightCycle;
 	_DayNightComponent->enableDayNightCycle = _VolumeData.dayNightCycle;
 	_VolumeData.dayLength = WeatherData.dayLength;
-	//_DayNightComponent->turnRate = _VolumeData.dayLength;
+	_DayNightComponent->turnRate = _VolumeData.dayLength;
 	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
 }
