@@ -25,7 +25,7 @@ public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	ADirectionalLight* lightSource;
 
-	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadOnly, EditAnywhere)
 	float turnRate;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)

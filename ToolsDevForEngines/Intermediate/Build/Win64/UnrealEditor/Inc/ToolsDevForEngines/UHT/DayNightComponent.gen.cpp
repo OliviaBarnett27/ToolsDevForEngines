@@ -67,7 +67,7 @@ struct Z_Construct_UClass_UDayNightComponent_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDayNightComponent_Statics::NewProp_skySphere = { "skySphere", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDayNightComponent, skySphere), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_skySphere_MetaData), NewProp_skySphere_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UDayNightComponent_Statics::NewProp_lightSource = { "lightSource", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDayNightComponent, lightSource), Z_Construct_UClass_ADirectionalLight_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_lightSource_MetaData), NewProp_lightSource_MetaData) };
-const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UDayNightComponent_Statics::NewProp_turnRate = { "turnRate", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDayNightComponent, turnRate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_turnRate_MetaData), NewProp_turnRate_MetaData) };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UDayNightComponent_Statics::NewProp_turnRate = { "turnRate", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UDayNightComponent, turnRate), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_turnRate_MetaData), NewProp_turnRate_MetaData) };
 void Z_Construct_UClass_UDayNightComponent_Statics::NewProp_enableDayNightCycle_SetBit(void* Obj)
 {
 	((UDayNightComponent*)Obj)->enableDayNightCycle = 1;
@@ -120,10 +120,10 @@ UDayNightComponent::~UDayNightComponent() {}
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_DayNightComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UDayNightComponent, UDayNightComponent::StaticClass, TEXT("UDayNightComponent"), &Z_Registration_Info_UClass_UDayNightComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDayNightComponent), 2307937571U) },
+		{ Z_Construct_UClass_UDayNightComponent, UDayNightComponent::StaticClass, TEXT("UDayNightComponent"), &Z_Registration_Info_UClass_UDayNightComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UDayNightComponent), 271464787U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_DayNightComponent_h_2168474369(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_DayNightComponent_h_346934342(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_DayNightComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_DayNightComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

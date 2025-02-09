@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "W_DayLengthWidget.generated.h"
 
+class USpacer;
 class USpinBox;
 class UTextBlock;
 class USlider;
@@ -16,13 +17,15 @@ class TOOLSDEVFORENGINES_API UW_DayLengthWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
+	virtual void NativeConstruct() override;
+
 public:
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UHorizontalBox> HorizontalBox;
 	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<UTextBlock> Title;
 	UPROPERTY(meta = (BindWidget))
-	TObjectPtr<USlider> MySlider;
-	UPROPERTY(meta = (BindWidget))
 	TObjectPtr<USpinBox> MySpinBox;
+	UPROPERTY(meta = (BindWidget))
+	TObjectPtr<USpacer> Spacer;
 };

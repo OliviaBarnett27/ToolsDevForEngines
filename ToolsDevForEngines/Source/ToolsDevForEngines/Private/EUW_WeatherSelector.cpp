@@ -29,13 +29,13 @@ void UEUW_WeatherSelector::NativeConstruct()
 	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
 }
 
-//---------------------------------------------------------Set user weather data
+//-------------------------------------------------------------------Set user weather data
 void UEUW_WeatherSelector::SetUserWeatherData()
 {
 	SetUserInputs();
 	ReadDataTable();
 	
-	//UserDataStruct.dayLength = UserDayLength;
+	UserDataStruct.dayLength = UserDayLength;
 	UserDataStruct.dayNightCycle = UserDayNight;
 	
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
@@ -71,45 +71,25 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 			{
 				UserDataStruct.rainSpawnRate = randomRain * 150;
 			}
-
-			UE_LOG(LogTemp, Display, TEXT("randomRain = %f || rain spawn rate = %f"), randomRain, UserDataStruct.rainSpawnRate);
 			
 			UserDataStruct.rainGravity = FVector(((j * j) * 100), 0, -750);
-			//UE_LOG(LogTemp, Display, TEXT("SetUserWeatherData - rainSpawnRate: %f | rainGravity: %s"), UserDataStruct.rainSpawnRate, *UserDataStruct.rainGravity.ToString());
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
 	}
 }
 
-//----------------------------------------------------------------Set User Inputs
+//--------------------------------------------------------------------------Set User Inputs
 void UEUW_WeatherSelector::SetUserInputs()
 {
-
-	if (!DayLengthWidget->MySlider)
-	{
-		UE_LOG(LogTemp, Error, TEXT("no user day length WIDGET SLIDER"));
-	}
-
-	if (!UserDayLength)
-	{
-		UE_LOG(LogTemp, Error, TEXT("no user day length ???????"));
-	}
 	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
 	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
 	UserDayNight = DayNightWidget->MyCheckBox->IsChecked();
-	/*float SliderValue = DayLengthWidget->MySlider->GetValue();
-	if (SliderValue != 0.0f)
-	{
-		UserDayLength = SliderValue * 100;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("no value :("));
-	}*/
-	//UserDayLength = DayLengthWidget->MySpinBox->GetValue();
+	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
+
+	
 }
 
-//----------------------------------------------------------------Read Data Table
+//--------------------------------------------------------------------------Read Data Table
 void UEUW_WeatherSelector::ReadDataTable()
 {
 	if (!WeatherDataTable)

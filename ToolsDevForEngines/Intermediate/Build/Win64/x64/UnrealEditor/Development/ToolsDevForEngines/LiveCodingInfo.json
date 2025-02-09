@@ -3,7 +3,6 @@
 	{
 		"Module.ToolsDevForEngines.cpp.obj": [
 			"Climate.gen.cpp.obj",
-			"DayNightComponent.gen.cpp.obj",
 			"DayNightCycle.gen.cpp.obj",
 			"EUW_WeatherSelector.gen.cpp.obj",
 			"I_WeatherCalculations.gen.cpp.obj",
@@ -30,6 +29,7 @@
 			"ToolsDevForEngines.cpp.obj",
 			"ToolsDevForEnginesCharacter.cpp.obj",
 			"ToolsDevForEnginesGameMode.cpp.obj",
+			"DayNightComponent.gen.cpp.obj",
 			"ToolsDevForEngines.init.gen.cpp.obj",
 			"W_DayLengthWidget.gen.cpp.obj",
 			"DayNightComponent.cpp.obj",

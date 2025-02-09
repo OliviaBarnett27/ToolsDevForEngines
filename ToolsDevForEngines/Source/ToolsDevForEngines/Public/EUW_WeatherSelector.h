@@ -69,5 +69,6 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ReadDataTable();
 
+
 	FClimate* ClimateData;
 };
