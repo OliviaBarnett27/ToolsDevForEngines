@@ -259,12 +259,8 @@
     <None Include="..\..\Config\DefaultGame.ini"/>
     <None Include="..\..\Config\DefaultInput.ini"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Climate.h"/>
-    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\DayNightComponent.h" />
-    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ErraticismWidget.h" />
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Season.h"/>
     <None Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.Build.cs"/>
-    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\DayNightComponent.cpp" />
-    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_ErraticismWidget.cpp" />
     <ClCompile Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -278,6 +274,9 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\ToolsDevForEnginesGameMode.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\UserWeatherData.h"/>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\DayNightComponent.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\EUW_WeatherSelector.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -302,12 +301,16 @@
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_DayNightWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_ErraticismWidget.cpp">
+      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_GenerateButton.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_SeasonWidget.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\DayNightComponent.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\EUW_WeatherSelector.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\I_WeatherCalculations.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\PCGSubclassReader.h"/>
@@ -316,6 +319,7 @@
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ClimateWidget.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayLengthWidget.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayNightWidget.h"/>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ErraticismWidget.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_GenerateButton.h"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_SeasonWidget.h"/>
   </ItemGroup>

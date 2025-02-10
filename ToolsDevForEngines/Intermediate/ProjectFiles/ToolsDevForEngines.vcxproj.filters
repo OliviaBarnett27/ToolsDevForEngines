@@ -66,6 +66,9 @@
     <Filter Include="Source\ToolsDevForEngines\Private">
       <UniqueIdentifier>{3C10C283-0ACD-3183-8A24-5DFD16EB67C0}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\DayNightComponent.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\EUW_WeatherSelector.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
@@ -90,6 +93,9 @@
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_DayNightWidget.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_ErraticismWidget.cpp">
+      <Filter>Source\ToolsDevForEngines\Private</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\W_GenerateButton.cpp">
       <Filter>Source\ToolsDevForEngines\Private</Filter>
     </ClCompile>
@@ -99,6 +105,9 @@
     <Filter Include="Source\ToolsDevForEngines\Public">
       <UniqueIdentifier>{22E35A5B-3AC3-3B72-ABE0-70A1CE704E82}</UniqueIdentifier>
     </Filter>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\DayNightComponent.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\EUW_WeatherSelector.h">
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
@@ -121,6 +130,9 @@
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_DayNightWidget.h">
+      <Filter>Source\ToolsDevForEngines\Public</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_ErraticismWidget.h">
       <Filter>Source\ToolsDevForEngines\Public</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\W_GenerateButton.h">

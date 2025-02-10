@@ -29,7 +29,7 @@ public:
 	float turnRate;
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	bool enableDayNightCycle;
+	bool enableDayNightCycle = false;
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;

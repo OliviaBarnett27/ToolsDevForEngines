@@ -65,7 +65,7 @@ public:
 
 	//------UFUNCTIONS
 	UFUNCTION(BlueprintCallable)
-	void SetUserWeatherData();
+	void OnButtonClicked();
     
 	UFUNCTION(BlueprintCallable)
 	void SetUserInputs();
@@ -73,6 +73,18 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ReadDataTable();
 
+	UFUNCTION()
+	void CalculateWeather();
+	
+	UFUNCTION()
+	void CalculateRainSpawnRate();
 
+	UFUNCTION()
+	void CalculateRainGravity();
+
+	UFUNCTION(BlueprintCallable)
+	void CommunicateWithVolume();
+	
 	FClimate* ClimateData;
 };
+

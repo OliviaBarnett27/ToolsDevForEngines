@@ -23,7 +23,6 @@ void UDayNightComponent::TickComponent(float DeltaTime, ELevelTick TickType, FAc
 		if (lightSource)
 		{
 			lightSource->AddActorLocalRotation(FRotator((DeltaTime * turnRate), 0, 0));
-			UE_LOG(LogTemp, Error, TEXT("Bool is: %s"), enableDayNightCycle ? TEXT("true") : TEXT("false"));
 		}
 		if (skySphere)
 		{

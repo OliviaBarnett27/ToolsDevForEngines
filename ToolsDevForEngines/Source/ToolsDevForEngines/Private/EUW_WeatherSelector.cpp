@@ -21,24 +21,99 @@
 struct FClimate;
 struct FSeason;
 
+//--------------------------------------------------------------------------Native construct
 void UEUW_WeatherSelector::NativeConstruct()
 {
 	Super::NativeConstruct();
 
 	UtilityTitle->SetText(FText::FromString("Weather Selector"));
-	OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
-	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::SetUserWeatherData);
+	//OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::OnButtonCliked);
+	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::OnButtonClicked);
 }
 
-//-------------------------------------------------------------------Set user weather data
-void UEUW_WeatherSelector::SetUserWeatherData()
+//--------------------------------------------------------------------------Button clicked
+void UEUW_WeatherSelector::OnButtonClicked()
 {
 	SetUserInputs();
+
+	if (UserClimate == NAME_None) {return;}
+	if (UserSeason == NAME_None) {return;}
+	
 	ReadDataTable();
 	
 	UserDataStruct.dayLength = UserDayLength;
 	UserDataStruct.dayNightCycle = UserDayNight;
+
+	CommunicateWithVolume();
 	
+	GenerateButton->Text->SetText(FText::FromString("WEATHER GENERATED"));
+}
+
+//--------------------------------------------------------------------------Set User Inputs
+void UEUW_WeatherSelector::SetUserInputs()
+{
+	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
+	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
+	UserDayNight = DayNightWidget->MyCheckBox->IsChecked();
+	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
+	UserErraticism = ErraticismWidget->MySpinBox->GetValue();
+}
+
+//--------------------------------------------------------------------------Read Data Table
+void UEUW_WeatherSelector::ReadDataTable()
+{
+	if (!WeatherDataTable) {return;}
+	
+	FSeason* SeasonData = WeatherDataTable->FindRow<FSeason>(UserSeason, TEXT("Find Season Row"));
+	
+	if (!SeasonData) {return;}
+
+	ClimateData = SeasonData->ClimateMap.Find(UserClimate);
+
+	if (!ClimateData) {return;}
+
+	UE_LOG(LogTemp, Display, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
+}
+
+//--------------------------------------------------------------------------Calculate weather features 
+void UEUW_WeatherSelector::CalculateWeather()
+{
+	CalculateRainSpawnRate();
+	CalculateRainGravity();
+}
+
+//--------------------------------------------------------------------------Calculate rain spawn rate
+void UEUW_WeatherSelector::CalculateRainSpawnRate()
+{
+	float randomRain  = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
+	if (randomRain < 20)
+	{
+		UserDataStruct.rainSpawnRate = randomRain;
+	}
+	else if (randomRain >= 20 && randomRain < 50)
+	{
+		UserDataStruct.rainSpawnRate = randomRain * 10;
+	}
+	else if (randomRain >= 50 && randomRain < 75) 
+	{
+		UserDataStruct.rainSpawnRate = randomRain * 50;
+	}
+	else
+	{
+		UserDataStruct.rainSpawnRate = randomRain * 150;
+	}
+}
+
+//--------------------------------------------------------------------------Calculate rain gravity
+void UEUW_WeatherSelector::CalculateRainGravity()
+{
+	//temp calc
+	UserDataStruct.rainGravity = FVector((7 * 100), 0, -750);
+}
+
+//--------------------------------------------------------------------------Communicate with volume(s)
+void UEUW_WeatherSelector::CommunicateWithVolume()
+{
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
 	
 	if (!(PlacedWeatherVolumes.Num() > 0)) //if no weather volumes were found
@@ -55,67 +130,10 @@ void UEUW_WeatherSelector::SetUserWeatherData()
 
 		for(int j = 0; j < 50; j++)
 		{
-			float randomRain  = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
-			if (randomRain < 20)
-			{
-				UserDataStruct.rainSpawnRate = randomRain;
-			}
-			else if (randomRain >= 20 && randomRain < 50)
-			{
-				UserDataStruct.rainSpawnRate = randomRain * 10;
-			}
-			else if (randomRain >= 50 && randomRain < 75) 
-			{
-				UserDataStruct.rainSpawnRate = randomRain * 50;
-			}
-			else
-			{
-				UserDataStruct.rainSpawnRate = randomRain * 150;
-			}
-			
-			UserDataStruct.rainGravity = FVector(((j * j) * 100), 0, -750);
+			CalculateWeather();
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
 	}
-}
-
-//--------------------------------------------------------------------------Set User Inputs
-void UEUW_WeatherSelector::SetUserInputs()
-{
-	UserClimate = FName(ClimateWidget->MyComboBox->GetSelectedOption());
-	UserSeason = FName(SeasonWidget->MyComboBox->GetSelectedOption());
-	UserDayNight = DayNightWidget->MyCheckBox->IsChecked();
-	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
-	UserErraticism = ErraticismWidget->MySpinBox->GetValue();
-
-	
-}
-
-//--------------------------------------------------------------------------Read Data Table
-void UEUW_WeatherSelector::ReadDataTable()
-{
-	if (!WeatherDataTable)
-	{
-		return;
-	}
-	
-	FSeason* SeasonData = WeatherDataTable->FindRow<FSeason>(UserSeason, TEXT("Find Season Row"));
-	
-	if (!SeasonData)
-	{
-		UE_LOG(LogTemp, Log, TEXT("RSeason Data : %p"), SeasonData);
-		return;
-	}
-
-	ClimateData = SeasonData->ClimateMap.Find(UserClimate);
-
-	if (!ClimateData)
-	{
-		UE_LOG(LogTemp, Log, TEXT("no climate data"));
-		return;
-	}
-
-	UE_LOG(LogTemp, Display, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
 }
 
 
