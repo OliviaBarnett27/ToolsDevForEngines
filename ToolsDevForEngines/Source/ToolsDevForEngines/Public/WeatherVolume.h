@@ -31,26 +31,20 @@ public:
 	//---------- UPROPERTIES
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_RainComponent;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UNiagaraComponent> _NS_SnowComponent;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
 	TObjectPtr<UDayNightComponent> _DayNightComponent;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Weather Data")
 	FUserWeatherData _VolumeData;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FUserWeatherData> MyWeatherQueue;
 
 	//---------- UFUNCTIONS
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
 	void SetUserWeatherData(FUserWeatherData WeatherData);
-
 	UFUNCTION(BlueprintCallable)
 	void WeatherTransition();
-
 	UFUNCTION(BlueprintCallable)
 	void SetNiagaraParameters(); 
 

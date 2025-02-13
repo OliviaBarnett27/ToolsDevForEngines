@@ -37,7 +37,7 @@ void AWeatherVolume::BeginPlay()
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
 	FTimerDelegate TimerDelegate;
 	TimerDelegate.BindUFunction(this, "WeatherTransition"); 
-	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TimerDelegate, 5.00, true);
+	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TimerDelegate, 15, true);
 	//-----
 }
 
@@ -77,8 +77,16 @@ void AWeatherVolume::WeatherTransition()
 void AWeatherVolume::SetNiagaraParameters()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
+
+	//_NS_RainComponent->
+
+	float previousSpawnRate = MyWeatherQueue.Last().rainSpawnRate;
+
+	GetWorld()->GetTimerManager().PauseTimer(TransitionTimer);
+	float alpha = 0.5f;
+	float lerpedValue = FMath::Lerp(previousSpawnRate, MyWeatherQueue[currentWeatherIndex].rainSpawnRate, alpha);
 	
-	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
+	_NS_RainComponent->SetFloatParameter("SpawnRate", lerpedValue);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
 	
 	_NS_RainComponent->SetVectorParameter("RainGravity", MyWeatherQueue[currentWeatherIndex].rainGravity);

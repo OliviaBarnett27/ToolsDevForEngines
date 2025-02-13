@@ -30,7 +30,6 @@ void UEUW_WeatherSelector::NativeConstruct()
 	//OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::OnButtonCliked);
 	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::OnButtonClicked);
 }
-
 //--------------------------------------------------------------------------Button clicked
 void UEUW_WeatherSelector::OnButtonClicked()
 {
@@ -48,7 +47,6 @@ void UEUW_WeatherSelector::OnButtonClicked()
 	
 	GenerateButton->Text->SetText(FText::FromString("WEATHER GENERATED"));
 }
-
 //--------------------------------------------------------------------------Set User Inputs
 void UEUW_WeatherSelector::SetUserInputs()
 {
@@ -58,7 +56,6 @@ void UEUW_WeatherSelector::SetUserInputs()
 	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
 	UserErraticism = ErraticismWidget->MySpinBox->GetValue();
 }
-
 //--------------------------------------------------------------------------Read Data Table
 void UEUW_WeatherSelector::ReadDataTable()
 {
@@ -74,27 +71,25 @@ void UEUW_WeatherSelector::ReadDataTable()
 
 	UE_LOG(LogTemp, Display, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
 }
-
 //--------------------------------------------------------------------------Calculate weather features 
 void UEUW_WeatherSelector::CalculateWeather()
 {
 	SetPrecipitation();
-	CalculateRainSpawnRate();
-	CalculateRainGravity();
-
+	
 	if (enableRain)
 	{
 		CalculateRainSpawnRate();
 		CalculateRainGravity();
 	}
+	else { UserDataStruct.rainSpawnRate = 0.0f;}
 
 	if (enableSnow)
 	{
 		CalculateSnowSpawnRate();
 		CalculateSnowGravity();
 	}
+	else { UserDataStruct.snowSpawnRate = 0.0f;}
 }
-
 //--------------------------------------------------------------------------Calculate rain spawn rate
 void UEUW_WeatherSelector::CalculateRainSpawnRate()
 {
@@ -115,15 +110,14 @@ void UEUW_WeatherSelector::CalculateRainSpawnRate()
 	{
 		UserDataStruct.rainSpawnRate = randomRain * 150;
 	}
+	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.rainSpawnRate)
 }
-
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateRainGravity()
 {
 	//temp calc
 	UserDataStruct.rainGravity = FVector((7 * 100), 0, -750);
 }
-
 //--------------------------------------------------------------------------Calculate rain spawn rate
 void UEUW_WeatherSelector::CalculateSnowSpawnRate()
 {
@@ -156,15 +150,27 @@ void UEUW_WeatherSelector::CommunicateWithVolume()
 		}
 	}
 }
-
+//--------------------------------------------------------------------------Set precipitation
 void UEUW_WeatherSelector::SetPrecipitation()
-{
-	if (ClimateData->RainMax < 0.0f) {enableRain = false; return;}
-	if (ClimateData->SnowMax < 0.0f) {enableSnow = false; return;}
-
+{ 
+	int random;
 	
+	if (ClimateData->RainMax <= 0.0f) {enableRain = false; UE_LOG(LogTemp, Error,TEXT("RETURNING"));}
+	if (ClimateData->SnowMax <= 0.0f) {enableSnow = false;}
 
-	//ClimateData->RainMax 
+	if (ClimateData->SnowMax > 75)
+	{
+		random = FMath::RandRange(1, 3);
+		if (random != 3) {enableSnow = true;}
+		else {enableSnow = false;}
+	}
+	if (ClimateData->RainMax > 75)
+	{
+		random = FMath::RandRange(1, 5);
+		UE_LOG(LogTemp, Error, TEXT("Random is: %d"), random);
+		if (random !=3) {enableRain = true;}
+		else {enableRain = false;}
+	}
 }
 
 

@@ -113,6 +113,64 @@ DEFINE_FUNCTION(UEUW_WeatherSelector::execCalculateRainSpawnRate)
 }
 // End Class UEUW_WeatherSelector Function CalculateRainSpawnRate
 
+// Begin Class UEUW_WeatherSelector Function CalculateSnowGravity
+struct Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEUW_WeatherSelector, nullptr, "CalculateSnowGravity", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEUW_WeatherSelector::execCalculateSnowGravity)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CalculateSnowGravity();
+	P_NATIVE_END;
+}
+// End Class UEUW_WeatherSelector Function CalculateSnowGravity
+
+// Begin Class UEUW_WeatherSelector Function CalculateSnowSpawnRate
+struct Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEUW_WeatherSelector, nullptr, "CalculateSnowSpawnRate", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEUW_WeatherSelector::execCalculateSnowSpawnRate)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->CalculateSnowSpawnRate();
+	P_NATIVE_END;
+}
+// End Class UEUW_WeatherSelector Function CalculateSnowSpawnRate
+
 // Begin Class UEUW_WeatherSelector Function CalculateWeather
 struct Z_Construct_UFunction_UEUW_WeatherSelector_CalculateWeather_Statics
 {
@@ -235,6 +293,35 @@ DEFINE_FUNCTION(UEUW_WeatherSelector::execReadDataTable)
 }
 // End Class UEUW_WeatherSelector Function ReadDataTable
 
+// Begin Class UEUW_WeatherSelector Function SetPrecipitation
+struct Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEUW_WeatherSelector, nullptr, "SetPrecipitation", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEUW_WeatherSelector::execSetPrecipitation)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetPrecipitation();
+	P_NATIVE_END;
+}
+// End Class UEUW_WeatherSelector Function SetPrecipitation
+
 // Begin Class UEUW_WeatherSelector Function SetUserInputs
 struct Z_Construct_UFunction_UEUW_WeatherSelector_SetUserInputs_Statics
 {
@@ -271,10 +358,13 @@ void UEUW_WeatherSelector::StaticRegisterNativesUEUW_WeatherSelector()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CalculateRainGravity", &UEUW_WeatherSelector::execCalculateRainGravity },
 		{ "CalculateRainSpawnRate", &UEUW_WeatherSelector::execCalculateRainSpawnRate },
+		{ "CalculateSnowGravity", &UEUW_WeatherSelector::execCalculateSnowGravity },
+		{ "CalculateSnowSpawnRate", &UEUW_WeatherSelector::execCalculateSnowSpawnRate },
 		{ "CalculateWeather", &UEUW_WeatherSelector::execCalculateWeather },
 		{ "CommunicateWithVolume", &UEUW_WeatherSelector::execCommunicateWithVolume },
 		{ "OnButtonClicked", &UEUW_WeatherSelector::execOnButtonClicked },
 		{ "ReadDataTable", &UEUW_WeatherSelector::execReadDataTable },
+		{ "SetPrecipitation", &UEUW_WeatherSelector::execSetPrecipitation },
 		{ "SetUserInputs", &UEUW_WeatherSelector::execSetUserInputs },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -371,10 +461,13 @@ struct Z_Construct_UClass_UEUW_WeatherSelector_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateRainGravity, "CalculateRainGravity" }, // 2977775577
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateRainSpawnRate, "CalculateRainSpawnRate" }, // 1851337038
+		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowGravity, "CalculateSnowGravity" }, // 2740974574
+		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate, "CalculateSnowSpawnRate" }, // 3548923795
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateWeather, "CalculateWeather" }, // 52793682
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CommunicateWithVolume, "CommunicateWithVolume" }, // 1227865185
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_OnButtonClicked, "OnButtonClicked" }, // 3883032190
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_ReadDataTable, "ReadDataTable" }, // 1579190298
+		{ &Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation, "SetPrecipitation" }, // 45504486
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_SetUserInputs, "SetUserInputs" }, // 3613933360
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -453,10 +546,10 @@ UEUW_WeatherSelector::~UEUW_WeatherSelector() {}
 struct Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 3020613835U) },
+		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 39350662U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_2589696652(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_2317515118(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

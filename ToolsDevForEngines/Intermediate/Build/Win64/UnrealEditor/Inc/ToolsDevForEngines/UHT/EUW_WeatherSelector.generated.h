@@ -19,7 +19,10 @@ TOOLSDEVFORENGINES_API void FOnGenerateWeatherButtonClickedSignature_DelegateWra
 
 
 #define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execSetPrecipitation); \
 	DECLARE_FUNCTION(execCommunicateWithVolume); \
+	DECLARE_FUNCTION(execCalculateSnowGravity); \
+	DECLARE_FUNCTION(execCalculateSnowSpawnRate); \
 	DECLARE_FUNCTION(execCalculateRainGravity); \
 	DECLARE_FUNCTION(execCalculateRainSpawnRate); \
 	DECLARE_FUNCTION(execCalculateWeather); \
