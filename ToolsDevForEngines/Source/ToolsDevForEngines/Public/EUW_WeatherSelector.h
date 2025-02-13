@@ -34,6 +34,8 @@ public:
 	bool UserDayNight;
 	float UserErraticism;
 	uint8* RowPointer;
+	bool enableRain;
+	bool enableSnow;
 
 	//-----Widgets
 	UPROPERTY(meta = (BindWidget))
@@ -56,35 +58,34 @@ public:
 	//------UPROPERTIES
 	UPROPERTY(BlueprintAssignable)
 	FOnGenerateWeatherButtonClickedSignature OnGenerateWeatherButtonClickedDelegate;
-
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FUserWeatherData UserDataStruct;
-
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	UDataTable* WeatherDataTable;
 
 	//------UFUNCTIONS
 	UFUNCTION(BlueprintCallable)
 	void OnButtonClicked();
-    
 	UFUNCTION(BlueprintCallable)
 	void SetUserInputs();
-
 	UFUNCTION(BlueprintCallable)
 	void ReadDataTable();
-
 	UFUNCTION()
 	void CalculateWeather();
-	
 	UFUNCTION()
 	void CalculateRainSpawnRate();
-
 	UFUNCTION()
 	void CalculateRainGravity();
-
+	UFUNCTION()
+	void CalculateSnowSpawnRate();
+	UFUNCTION()
+	void CalculateSnowGravity();
 	UFUNCTION(BlueprintCallable)
 	void CommunicateWithVolume();
+	UFUNCTION()
+	void SetPrecipitation();
 	
 	FClimate* ClimateData;
 };
+
 

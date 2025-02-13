@@ -78,8 +78,21 @@ void UEUW_WeatherSelector::ReadDataTable()
 //--------------------------------------------------------------------------Calculate weather features 
 void UEUW_WeatherSelector::CalculateWeather()
 {
+	SetPrecipitation();
 	CalculateRainSpawnRate();
 	CalculateRainGravity();
+
+	if (enableRain)
+	{
+		CalculateRainSpawnRate();
+		CalculateRainGravity();
+	}
+
+	if (enableSnow)
+	{
+		CalculateSnowSpawnRate();
+		CalculateSnowGravity();
+	}
 }
 
 //--------------------------------------------------------------------------Calculate rain spawn rate
@@ -111,6 +124,14 @@ void UEUW_WeatherSelector::CalculateRainGravity()
 	UserDataStruct.rainGravity = FVector((7 * 100), 0, -750);
 }
 
+//--------------------------------------------------------------------------Calculate rain spawn rate
+void UEUW_WeatherSelector::CalculateSnowSpawnRate()
+{
+}
+//--------------------------------------------------------------------------Calculate rain gravity
+void UEUW_WeatherSelector::CalculateSnowGravity()
+{
+}
 //--------------------------------------------------------------------------Communicate with volume(s)
 void UEUW_WeatherSelector::CommunicateWithVolume()
 {
@@ -134,6 +155,16 @@ void UEUW_WeatherSelector::CommunicateWithVolume()
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
 		}
 	}
+}
+
+void UEUW_WeatherSelector::SetPrecipitation()
+{
+	if (ClimateData->RainMax < 0.0f) {enableRain = false; return;}
+	if (ClimateData->SnowMax < 0.0f) {enableSnow = false; return;}
+
+	
+
+	//ClimateData->RainMax 
 }
 
 
