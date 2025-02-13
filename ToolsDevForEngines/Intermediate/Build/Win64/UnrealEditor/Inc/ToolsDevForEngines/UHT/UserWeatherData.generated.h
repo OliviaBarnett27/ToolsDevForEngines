@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define TOOLSDEVFORENGINES_UserWeatherData_generated_h
 
-#define FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_11_GENERATED_BODY \
+#define FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h_11_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FUserWeatherData_Statics; \
 	TOOLSDEVFORENGINES_API static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> TOOLSDEVFORENGINES_API UScriptStruct* StaticStruct<struct FUserWeatherData>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h
+#define CURRENT_FILE_ID FID_C_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_UserWeatherData_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
