@@ -110,10 +110,14 @@
             "c:\\program files\\epic games\\ue_5.4\\engine\\plugins\\fx\\niagara\\intermediate\\build\\win64\\unrealeditor\\inc\\niagara\\uht\\niagarasystem.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\core\\public\\containers\\circularqueue.h",
             "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\weathervolume.generated.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\cloudscomponent.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\cloudscomponent.generated.h",
             "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\daynightcomponent.h",
             "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\daynightcomponent.generated.h",
             "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\brushcomponent.h",
-            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\brushcomponent.generated.h"
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\brushcomponent.generated.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\volumetriccloudcomponent.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\volumetriccloudcomponent.generated.h"
         ],
         "ImportedModules": [],
         "ImportedHeaderUnits": []

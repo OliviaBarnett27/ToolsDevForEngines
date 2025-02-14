@@ -3,14 +3,15 @@
 	{
 		"Module.ToolsDevForEngines.cpp.obj": [
 			"Climate.gen.cpp.obj",
+			"CloudsComponent.gen.cpp.obj",
 			"DayNightComponent.gen.cpp.obj",
+			"EUW_WeatherSelector.gen.cpp.obj",
 			"I_WeatherCalculations.gen.cpp.obj",
 			"Season.gen.cpp.obj",
 			"Subsystem_WeatherSelector.gen.cpp.obj",
 			"ToolsDevForEnginesCharacter.gen.cpp.obj",
 			"ToolsDevForEnginesGameMode.gen.cpp.obj",
 			"UserWeatherData.gen.cpp.obj",
-			"WeatherVolume.gen.cpp.obj",
 			"W_ClimateWidget.gen.cpp.obj",
 			"W_DayLengthWidget.gen.cpp.obj",
 			"W_DayNightWidget.gen.cpp.obj",
@@ -21,7 +22,6 @@
 			"I_WeatherCalculations.cpp.obj",
 			"PCGSubclassReader.cpp.obj",
 			"Subsystem_WeatherSelector.cpp.obj",
-			"WeatherVolume.cpp.obj",
 			"W_ClimateWidget.cpp.obj",
 			"W_DayLengthWidget.cpp.obj",
 			"W_DayNightWidget.cpp.obj",
@@ -31,9 +31,11 @@
 			"ToolsDevForEngines.cpp.obj",
 			"ToolsDevForEnginesCharacter.cpp.obj",
 			"ToolsDevForEnginesGameMode.cpp.obj",
-			"EUW_WeatherSelector.gen.cpp.obj",
 			"ToolsDevForEngines.init.gen.cpp.obj",
-			"EUW_WeatherSelector.cpp.obj"
+			"WeatherVolume.gen.cpp.obj",
+			"CloudsComponent.cpp.obj",
+			"EUW_WeatherSelector.cpp.obj",
+			"WeatherVolume.cpp.obj"
 		]
 	}
 }

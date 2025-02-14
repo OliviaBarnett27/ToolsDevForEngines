@@ -3,9 +3,11 @@
 
 #include "WeatherVolume.h"
 
+#include "CloudsComponent.h"
 #include "DayNightComponent.h"
 #include "EUW_WeatherSelector.h"
 #include "Components/BrushComponent.h"
+#include "Components/VolumetricCloudComponent.h"
 
 
 // Sets default values
@@ -19,14 +21,19 @@ AWeatherVolume::AWeatherVolume()
 	_NS_SnowComponent = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Snow Component"));
 	_NS_SnowComponent-> SetupAttachment(RootComponent);
 
+	_CloudsComponent = CreateDefaultSubobject<UCloudsComponent>(TEXT("Clouds Component"));
+
 	_DayNightComponent = CreateDefaultSubobject<UDayNightComponent>(TEXT("Day/Night Component"));
+	
+	DynamicCloudMaterial = UMaterialInstanceDynamic::Create(_CloudsComponent->CloudMaterial, this);
+	_CloudsComponent->_VolumetricCloudComponent->SetMaterial(DynamicCloudMaterial);
 }
 
 // Called when the game starts or when spawned
 void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
-
+	
 	if (MyWeatherQueue.IsEmpty()) //if it's empty, the button hasn't been pressed. prevents crashing.
 	{
 		return;
@@ -35,9 +42,9 @@ void AWeatherVolume::BeginPlay()
 	SetNiagaraParameters(); //sets niagara parameters for the first array element
 
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
-	FTimerDelegate TimerDelegate;
-	TimerDelegate.BindUFunction(this, "WeatherTransition"); 
-	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TimerDelegate, 15, true);
+	FTimerDelegate TransitionTimerDelegate;
+	TransitionTimerDelegate.BindUFunction(this, "WeatherTransition"); 
+	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TransitionTimerDelegate, 15, true);
 	//-----
 }
 
@@ -71,26 +78,26 @@ void AWeatherVolume::WeatherTransition()
 		currentWeatherIndex = 0; //resets the indexer once the end of the queue has been reached, so that the weather queue cycles
 	}
 
+	/*GetWorld()->GetTimerManager().PauseTimer(TransitionTimer);
+	
+	FTimerDelegate LerpTimerDelegate;
+	LerpTimerDelegate.BindUFunction(this, "WeatherLerp"); 
+	GetWorld()->GetTimerManager().SetTimer(WeatherLerpTimer, LerpTimerDelegate, 0.01, true);*/
+	
 	SetNiagaraParameters(); 
 }
 
 void AWeatherVolume::SetNiagaraParameters()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
-
-	//_NS_RainComponent->
-
-	float previousSpawnRate = MyWeatherQueue.Last().rainSpawnRate;
-
-	GetWorld()->GetTimerManager().PauseTimer(TransitionTimer);
-	float alpha = 0.5f;
-	float lerpedValue = FMath::Lerp(previousSpawnRate, MyWeatherQueue[currentWeatherIndex].rainSpawnRate, alpha);
 	
-	_NS_RainComponent->SetFloatParameter("SpawnRate", lerpedValue);
+	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
 	
 	_NS_RainComponent->SetVectorParameter("RainGravity", MyWeatherQueue[currentWeatherIndex].rainGravity);
 	_NS_SnowComponent->SetVectorParameter("SnowGravity", MyWeatherQueue[currentWeatherIndex].snowGravity);
+
+	DynamicCloudMaterial->SetScalarParameterValue(FName("WeatherUVScale"), 1);
 }
 
 

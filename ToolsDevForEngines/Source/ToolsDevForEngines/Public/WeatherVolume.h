@@ -10,6 +10,9 @@
 #include "Containers/CircularQueue.h"
 #include "WeatherVolume.generated.h"
 
+class UCloudsComponent;
+class UVolumetricCloudComponent;
+class AVolumetricCloud;
 class UDayNightComponent;
 class ADayNightCycle;
 struct FUserWeatherData;
@@ -39,6 +42,10 @@ public:
 	FUserWeatherData _VolumeData;
 	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 	TArray<FUserWeatherData> MyWeatherQueue;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
+	UCloudsComponent* _CloudsComponent;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	UMaterialInstanceDynamic* DynamicCloudMaterial;
 
 	//---------- UFUNCTIONS
 	UFUNCTION(BlueprintCallable, Category = "Weather Data")
@@ -46,11 +53,12 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void WeatherTransition();
 	UFUNCTION(BlueprintCallable)
-	void SetNiagaraParameters(); 
+	void SetNiagaraParameters();
 
 	//---------- variables
 	float currentWeatherIndex = 0;
 	FTimerHandle TransitionTimer;
+	FTimerHandle WeatherLerpTimer;
 	float rainSpawnRate = 0.0f;
 	FVector rainGravity = FVector::ZeroVector;
 };

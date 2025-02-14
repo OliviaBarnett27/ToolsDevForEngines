@@ -259,8 +259,10 @@
     <None Include="..\..\Config\DefaultGame.ini"/>
     <None Include="..\..\Config\DefaultInput.ini"/>
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Climate.h"/>
+    <ClInclude Include="..\..\Source\ToolsDevForEngines\Public\CloudsComponent.h" />
     <ClInclude Include="..\..\Source\ToolsDevForEngines\Season.h"/>
     <None Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.Build.cs"/>
+    <ClCompile Include="..\..\Source\ToolsDevForEngines\Private\CloudsComponent.cpp" />
     <ClCompile Include="..\..\Source\ToolsDevForEngines\ToolsDevForEngines.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>

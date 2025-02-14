@@ -1,0 +1,17 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\private\\cloudscomponent.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\toolsdevforengineseditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.h.pch",
+        "Includes": [
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\toolsdevforengines\\definitions.toolsdevforengines.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\source\\toolsdevforengines\\public\\cloudscomponent.h",
+            "c:\\c documents\\github\\toolsdevforengines\\toolsdevforengines\\intermediate\\build\\win64\\unrealeditor\\inc\\toolsdevforengines\\uht\\cloudscomponent.generated.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\source\\runtime\\engine\\classes\\components\\volumetriccloudcomponent.h",
+            "c:\\program files\\epic games\\ue_5.4\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\volumetriccloudcomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
