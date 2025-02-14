@@ -77,12 +77,6 @@ void AWeatherVolume::WeatherTransition()
 	{
 		currentWeatherIndex = 0; //resets the indexer once the end of the queue has been reached, so that the weather queue cycles
 	}
-
-	/*GetWorld()->GetTimerManager().PauseTimer(TransitionTimer);
-	
-	FTimerDelegate LerpTimerDelegate;
-	LerpTimerDelegate.BindUFunction(this, "WeatherLerp"); 
-	GetWorld()->GetTimerManager().SetTimer(WeatherLerpTimer, LerpTimerDelegate, 0.01, true);*/
 	
 	SetNiagaraParameters(); 
 }

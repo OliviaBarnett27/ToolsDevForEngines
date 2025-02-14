@@ -36,6 +36,7 @@ public:
 	uint8* RowPointer;
 	bool enableRain;
 	bool enableSnow;
+	float volumeSizeCubed;
 
 	//-----Widgets
 	UPROPERTY(meta = (BindWidget))
@@ -84,6 +85,8 @@ public:
 	void CommunicateWithVolume();
 	UFUNCTION()
 	void SetPrecipitation();
+	UFUNCTION()
+	void FindVolumeSize(AWeatherVolume* Volume);
 	
 	FClimate* ClimateData;
 };

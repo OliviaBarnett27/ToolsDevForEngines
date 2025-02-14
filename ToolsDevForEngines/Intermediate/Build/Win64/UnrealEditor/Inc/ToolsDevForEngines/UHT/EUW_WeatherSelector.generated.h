@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AWeatherVolume;
 #ifdef TOOLSDEVFORENGINES_EUW_WeatherSelector_generated_h
 #error "EUW_WeatherSelector.generated.h already included, missing '#pragma once' in EUW_WeatherSelector.h"
 #endif
@@ -19,6 +20,7 @@ TOOLSDEVFORENGINES_API void FOnGenerateWeatherButtonClickedSignature_DelegateWra
 
 
 #define FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execFindVolumeSize); \
 	DECLARE_FUNCTION(execSetPrecipitation); \
 	DECLARE_FUNCTION(execCommunicateWithVolume); \
 	DECLARE_FUNCTION(execCalculateSnowGravity); \

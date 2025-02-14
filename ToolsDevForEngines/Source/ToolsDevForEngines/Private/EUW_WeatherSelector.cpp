@@ -9,6 +9,7 @@
 #include "W_ErraticismWidget.h"
 #include "W_GenerateButton.h"
 #include "W_SeasonWidget.h"
+#include "Components/BrushComponent.h"
 #include "Components/Button.h"
 #include "Components/CheckBox.h"
 #include "Components/ComboBoxString.h"
@@ -111,6 +112,8 @@ void UEUW_WeatherSelector::CalculateRainSpawnRate()
 		UserDataStruct.rainSpawnRate = randomRain * 150;
 	}
 	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.rainSpawnRate)
+
+	UserDataStruct.rainSpawnRate = (volumeSizeCubed / UserDataStruct.rainSpawnRate) / 100;
 }
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateRainGravity()
@@ -132,8 +135,6 @@ void UEUW_WeatherSelector::CalculateRainGravity()
 	{
 		UserDataStruct.rainGravity.X = randomWind + 75;
 	}
-	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *UserDataStruct.rainGravity.ToString());
-	UE_LOG(LogTemp, Warning, TEXT("random wind:  %f"), randomWind);
 }
 //--------------------------------------------------------------------------Calculate rain spawn rate
 void UEUW_WeatherSelector::CalculateSnowSpawnRate()
@@ -196,6 +197,8 @@ void UEUW_WeatherSelector::CommunicateWithVolume()
 		AWeatherVolume* Volume = Cast<AWeatherVolume>(PlacedWeatherVolumes[i]); //cast to the weather volume
 
 		Volume->MyWeatherQueue.Empty();
+;
+		FindVolumeSize(Volume);
 
 		for(int j = 0; j < 50; j++)
 		{
@@ -266,6 +269,29 @@ void UEUW_WeatherSelector::SetPrecipitation()
 		if (random == 1) {enableRain = false;}
 		else {enableRain = true;}
 	}
+
+	if (enableSnow && enableRain)
+	{
+		if (ClimateData->RainMax > ClimateData->SnowMax)
+		{
+			enableRain = true;
+			enableSnow = false;
+		}
+		else
+		{
+			enableRain = true;
+			enableSnow = false;
+		}
+	}
+}
+
+void UEUW_WeatherSelector::FindVolumeSize(AWeatherVolume* Volume)
+{
+	FBoxSphereBounds weatherBounds = Volume->GetBrushComponent()->Bounds;
+
+	FVector volumeSize = Volume->GetComponentsBoundingBox().GetSize();
+
+	volumeSizeCubed = volumeSize.X * volumeSize.Y * volumeSize.Z;
 }
 
 

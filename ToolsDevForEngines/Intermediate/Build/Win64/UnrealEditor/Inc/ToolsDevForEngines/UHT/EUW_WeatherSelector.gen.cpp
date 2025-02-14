@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeEUW_WeatherSelector() {}
 // Begin Cross Module References
 BLUTILITY_API UClass* Z_Construct_UClass_UEditorUtilityWidget();
 ENGINE_API UClass* Z_Construct_UClass_UDataTable_NoRegister();
+TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_AWeatherVolume_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UEUW_WeatherSelector();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UEUW_WeatherSelector_NoRegister();
 TOOLSDEVFORENGINES_API UClass* Z_Construct_UClass_UI_WeatherCalculations_NoRegister();
@@ -229,6 +230,48 @@ DEFINE_FUNCTION(UEUW_WeatherSelector::execCommunicateWithVolume)
 }
 // End Class UEUW_WeatherSelector Function CommunicateWithVolume
 
+// Begin Class UEUW_WeatherSelector Function FindVolumeSize
+struct Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics
+{
+	struct EUW_WeatherSelector_eventFindVolumeSize_Parms
+	{
+		AWeatherVolume* Volume;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/EUW_WeatherSelector.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_Volume;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::NewProp_Volume = { "Volume", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(EUW_WeatherSelector_eventFindVolumeSize_Parms, Volume), Z_Construct_UClass_AWeatherVolume_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::NewProp_Volume,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UEUW_WeatherSelector, nullptr, "FindVolumeSize", nullptr, nullptr, Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::PropPointers), sizeof(Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::EUW_WeatherSelector_eventFindVolumeSize_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::Function_MetaDataParams), Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::EUW_WeatherSelector_eventFindVolumeSize_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UEUW_WeatherSelector::execFindVolumeSize)
+{
+	P_GET_OBJECT(AWeatherVolume,Z_Param_Volume);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->FindVolumeSize(Z_Param_Volume);
+	P_NATIVE_END;
+}
+// End Class UEUW_WeatherSelector Function FindVolumeSize
+
 // Begin Class UEUW_WeatherSelector Function OnButtonClicked
 struct Z_Construct_UFunction_UEUW_WeatherSelector_OnButtonClicked_Statics
 {
@@ -362,6 +405,7 @@ void UEUW_WeatherSelector::StaticRegisterNativesUEUW_WeatherSelector()
 		{ "CalculateSnowSpawnRate", &UEUW_WeatherSelector::execCalculateSnowSpawnRate },
 		{ "CalculateWeather", &UEUW_WeatherSelector::execCalculateWeather },
 		{ "CommunicateWithVolume", &UEUW_WeatherSelector::execCommunicateWithVolume },
+		{ "FindVolumeSize", &UEUW_WeatherSelector::execFindVolumeSize },
 		{ "OnButtonClicked", &UEUW_WeatherSelector::execOnButtonClicked },
 		{ "ReadDataTable", &UEUW_WeatherSelector::execReadDataTable },
 		{ "SetPrecipitation", &UEUW_WeatherSelector::execSetPrecipitation },
@@ -465,6 +509,7 @@ struct Z_Construct_UClass_UEUW_WeatherSelector_Statics
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateSnowSpawnRate, "CalculateSnowSpawnRate" }, // 3548923795
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CalculateWeather, "CalculateWeather" }, // 52793682
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_CommunicateWithVolume, "CommunicateWithVolume" }, // 1227865185
+		{ &Z_Construct_UFunction_UEUW_WeatherSelector_FindVolumeSize, "FindVolumeSize" }, // 2320275818
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_OnButtonClicked, "OnButtonClicked" }, // 3883032190
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_ReadDataTable, "ReadDataTable" }, // 1579190298
 		{ &Z_Construct_UFunction_UEUW_WeatherSelector_SetPrecipitation, "SetPrecipitation" }, // 45504486
@@ -546,10 +591,10 @@ UEUW_WeatherSelector::~UEUW_WeatherSelector() {}
 struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 39350662U) },
+		{ Z_Construct_UClass_UEUW_WeatherSelector, UEUW_WeatherSelector::StaticClass, TEXT("UEUW_WeatherSelector"), &Z_Registration_Info_UClass_UEUW_WeatherSelector, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEUW_WeatherSelector), 3353120705U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_2317515118(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_4165742478(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_EUW_WeatherSelector_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

@@ -15,7 +15,7 @@ struct FUserWeatherData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float snowSpawnRate;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector rainGravity = FVector(0, 0, -750);
+	FVector rainGravity = FVector(0, 0, -2000);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector snowGravity = FVector(0, 0, -750);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -23,5 +23,5 @@ struct FUserWeatherData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool dayNightCycle;
 
-	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.1f), rainGravity(FVector(0, 0, -750)), dayNightCycle(false) {};
+	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.1f), rainGravity(FVector(0, 0, -2000)), dayNightCycle(false) {};
 };

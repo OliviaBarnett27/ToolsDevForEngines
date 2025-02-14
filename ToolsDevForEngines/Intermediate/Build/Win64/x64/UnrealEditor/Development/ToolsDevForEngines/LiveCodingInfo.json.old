@@ -2,21 +2,6 @@
 	"RemapUnityFiles": 
 	{
 		"Module.ToolsDevForEngines.cpp.obj": [
-			"CloudsComponent.cpp.obj",
-			"DayNightComponent.cpp.obj",
-			"I_WeatherCalculations.cpp.obj",
-			"PCGSubclassReader.cpp.obj",
-			"Subsystem_WeatherSelector.cpp.obj",
-			"WeatherVolume.cpp.obj",
-			"W_ClimateWidget.cpp.obj",
-			"W_DayLengthWidget.cpp.obj",
-			"W_DayNightWidget.cpp.obj",
-			"W_ErraticismWidget.cpp.obj",
-			"W_GenerateButton.cpp.obj",
-			"W_SeasonWidget.cpp.obj",
-			"ToolsDevForEngines.cpp.obj",
-			"ToolsDevForEnginesCharacter.cpp.obj",
-			"ToolsDevForEnginesGameMode.cpp.obj",
 			"Climate.gen.cpp.obj",
 			"CloudsComponent.gen.cpp.obj",
 			"DayNightComponent.gen.cpp.obj",
@@ -35,7 +20,22 @@
 			"W_ErraticismWidget.gen.cpp.obj",
 			"W_GenerateButton.gen.cpp.obj",
 			"W_SeasonWidget.gen.cpp.obj",
-			"EUW_WeatherSelector.cpp.obj"
+			"CloudsComponent.cpp.obj",
+			"DayNightComponent.cpp.obj",
+			"I_WeatherCalculations.cpp.obj",
+			"PCGSubclassReader.cpp.obj",
+			"Subsystem_WeatherSelector.cpp.obj",
+			"W_ClimateWidget.cpp.obj",
+			"W_DayLengthWidget.cpp.obj",
+			"W_DayNightWidget.cpp.obj",
+			"W_ErraticismWidget.cpp.obj",
+			"W_GenerateButton.cpp.obj",
+			"W_SeasonWidget.cpp.obj",
+			"ToolsDevForEngines.cpp.obj",
+			"ToolsDevForEnginesCharacter.cpp.obj",
+			"ToolsDevForEnginesGameMode.cpp.obj",
+			"EUW_WeatherSelector.cpp.obj",
+			"WeatherVolume.cpp.obj"
 		]
 	}
 }
