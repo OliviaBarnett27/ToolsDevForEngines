@@ -94,11 +94,11 @@ void UEUW_WeatherSelector::CalculateWeather()
 void UEUW_WeatherSelector::CalculateRainSpawnRate()
 {
 	float randomRain  = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
-	if (randomRain < 20)
+	if (randomRain < 25)
 	{
 		UserDataStruct.rainSpawnRate = randomRain;
 	}
-	else if (randomRain >= 20 && randomRain < 50)
+	else if (randomRain >= 25 && randomRain < 50)
 	{
 		UserDataStruct.rainSpawnRate = randomRain * 10;
 	}
@@ -115,16 +115,70 @@ void UEUW_WeatherSelector::CalculateRainSpawnRate()
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateRainGravity()
 {
-	//temp calc
-	UserDataStruct.rainGravity = FVector((7 * 100), 0, -750);
+	float randomWind  = FMath::FRandRange(ClimateData->WindMin, ClimateData->WindMax);
+	if (randomWind < 25)
+	{
+		UserDataStruct.rainGravity.X = randomWind * 10;
+	}
+	else if (randomWind >= 25 && randomWind < 50)
+	{
+		UserDataStruct.rainGravity.X = randomWind * 30;
+	}
+	else if (randomWind >= 50 && randomWind < 75) 
+	{
+		UserDataStruct.rainGravity.X = randomWind * 50;
+	}
+	else
+	{
+		UserDataStruct.rainGravity.X = randomWind + 75;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *UserDataStruct.rainGravity.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("random wind:  %f"), randomWind);
 }
 //--------------------------------------------------------------------------Calculate rain spawn rate
 void UEUW_WeatherSelector::CalculateSnowSpawnRate()
 {
+	float randomSnow  = FMath::FRandRange(ClimateData->SnowMin, ClimateData->SnowMin);
+	if (randomSnow < 25)
+	{
+		UserDataStruct.snowSpawnRate = randomSnow;
+	}
+	else if (randomSnow >= 25 && randomSnow < 50)
+	{
+		UserDataStruct.snowSpawnRate = randomSnow * 10;
+	}
+	else if (randomSnow >= 50 && randomSnow < 75) 
+	{
+		UserDataStruct.snowSpawnRate = randomSnow * 50;
+	}
+	else
+	{
+		UserDataStruct.snowSpawnRate = randomSnow * 150;
+	}
+	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.snowSpawnRate)
 }
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateSnowGravity()
 {
+	float randomWind  = FMath::FRandRange(ClimateData->WindMin, ClimateData->WindMax);
+	if (randomWind < 25)
+	{
+		UserDataStruct.snowGravity.X = randomWind * 10;
+	}
+	else if (randomWind >= 25 && randomWind < 50)
+	{
+		UserDataStruct.snowGravity.X = randomWind * 30;
+	}
+	else if (randomWind >= 50 && randomWind < 75) 
+	{
+		UserDataStruct.snowGravity.X = randomWind * 50;
+	}
+	else
+	{
+		UserDataStruct.snowGravity.X = randomWind + 75;
+	}
+	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *UserDataStruct.snowGravity.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("random wind:  %f"), randomWind);
 }
 //--------------------------------------------------------------------------Communicate with volume(s)
 void UEUW_WeatherSelector::CommunicateWithVolume()
@@ -155,21 +209,62 @@ void UEUW_WeatherSelector::SetPrecipitation()
 { 
 	int random;
 	
-	if (ClimateData->RainMax <= 0.0f) {enableRain = false; UE_LOG(LogTemp, Error,TEXT("RETURNING"));}
+	if (ClimateData->RainMax <= 0.0f) {enableRain = false;}
 	if (ClimateData->SnowMax <= 0.0f) {enableSnow = false;}
 
 	if (ClimateData->SnowMax > 75)
 	{
-		random = FMath::RandRange(1, 3);
-		if (random != 3) {enableSnow = true;}
+		random = FMath::RandRange(1, 10);
+		if (random != 10) {enableSnow = true;}
 		else {enableSnow = false;}
 	}
 	if (ClimateData->RainMax > 75)
 	{
-		random = FMath::RandRange(1, 5);
+		random = FMath::RandRange(1, 10);
 		UE_LOG(LogTemp, Error, TEXT("Random is: %d"), random);
-		if (random !=3) {enableRain = true;}
+		if (random !=10) {enableRain = true;}
 		else {enableRain = false;}
+	}
+
+	if (ClimateData->SnowMax > 50 && ClimateData->SnowMax <= 75)
+	{
+		random = FMath::RandRange(1, 10);
+		if (random <= 3) {enableSnow = false;}
+		else {enableSnow = true;}
+	}
+	if (ClimateData->RainMax > 50 && ClimateData->RainMax <= 75)
+	{
+		random = FMath::RandRange(1, 10);
+		UE_LOG(LogTemp, Error, TEXT("Random is: %d"), random);
+		if (random <= 3) {enableRain = false;}
+		else {enableRain = true;}
+	}
+	
+	if (ClimateData->SnowMax > 25 && ClimateData->SnowMax <= 50)
+	{
+		random = FMath::RandRange(1, 10);
+		if (random <= 6) {enableSnow = false;}
+		else {enableSnow = true;}
+	}
+	if (ClimateData->RainMax > 25 && ClimateData->RainMax <= 50)
+	{
+		random = FMath::RandRange(1, 10);
+		UE_LOG(LogTemp, Error, TEXT("Random is: %d"), random);
+		if (random == 1) {enableRain = false;}
+		else {enableRain = true;}
+	}
+	if (ClimateData->SnowMax > 0 && ClimateData->SnowMax <= 25)
+	{
+		random = FMath::RandRange(1, 10);
+		if (random <= 6) {enableSnow = false;}
+		else {enableSnow = true;}
+	}
+	if (ClimateData->RainMax > 0 && ClimateData->RainMax <= 25)
+	{
+		random = FMath::RandRange(1, 10);
+		UE_LOG(LogTemp, Error, TEXT("Random is: %d"), random);
+		if (random == 1) {enableRain = false;}
+		else {enableRain = true;}
 	}
 }
 

@@ -44,7 +44,7 @@ void AWeatherVolume::BeginPlay()
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
 	FTimerDelegate TransitionTimerDelegate;
 	TransitionTimerDelegate.BindUFunction(this, "WeatherTransition"); 
-	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TransitionTimerDelegate, 15, true);
+	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TransitionTimerDelegate, 5, true);
 	//-----
 }
 
@@ -90,6 +90,7 @@ void AWeatherVolume::WeatherTransition()
 void AWeatherVolume::SetNiagaraParameters()
 {
 	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
+	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
