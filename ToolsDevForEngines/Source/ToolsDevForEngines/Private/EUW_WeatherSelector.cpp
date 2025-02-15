@@ -110,37 +110,22 @@ void UEUW_WeatherSelector::CalculateRainSpawnRate()
 	}
 	else
 	{
-		UserDataStruct.rainSpawnRate = randomRain * 100;
+		UserDataStruct.rainSpawnRate = randomRain * 150;
 	}
 	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.rainSpawnRate)
 
-	UserDataStruct.rainSpawnRate *= volumeSizeCubed / 100000000;
+	UserDataStruct.rainSpawnRate *= volumeSizeCubed / 100000000; //scales the spawn rate with the volume
 }
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateRainGravity()
 {
 	float randomWind  = FMath::FRandRange(ClimateData->WindMin, ClimateData->WindMax);
-	if (randomWind < 25)
-	{
-		UserDataStruct.rainGravity.X = randomWind * 10;
-	}
-	else if (randomWind >= 25 && randomWind < 50)
-	{
-		UserDataStruct.rainGravity.X = randomWind * 30;
-	}
-	else if (randomWind >= 50 && randomWind < 75) 
-	{
-		UserDataStruct.rainGravity.X = randomWind * 50;
-	}
-	else
-	{
-		UserDataStruct.rainGravity.X = randomWind + 75;
-	}
+	UserDataStruct.rainGravity.X = randomWind * 10;
 }
-//--------------------------------------------------------------------------Calculate rain spawn rate
+//--------------------------------------------------------------------------Calculate snow spawn rate
 void UEUW_WeatherSelector::CalculateSnowSpawnRate()
 {
-	float randomSnow  = FMath::FRandRange(ClimateData->SnowMin, ClimateData->SnowMin);
+	float randomSnow  = FMath::FRandRange(ClimateData->SnowMin, ClimateData->SnowMax);
 	if (randomSnow < 25)
 	{
 		UserDataStruct.snowSpawnRate = randomSnow;
@@ -157,30 +142,15 @@ void UEUW_WeatherSelector::CalculateSnowSpawnRate()
 	{
 		UserDataStruct.snowSpawnRate = randomSnow * 150;
 	}
-	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.snowSpawnRate)
+	UE_LOG(LogTemp, Error, TEXT("snow spawn rate: %f"), UserDataStruct.snowSpawnRate)
+	
+	UserDataStruct.snowSpawnRate *= volumeSizeCubed / 100000000;
 }
-//--------------------------------------------------------------------------Calculate rain gravity
+//--------------------------------------------------------------------------Calculate snow gravity
 void UEUW_WeatherSelector::CalculateSnowGravity()
 {
 	float randomWind  = FMath::FRandRange(ClimateData->WindMin, ClimateData->WindMax);
-	if (randomWind < 25)
-	{
-		UserDataStruct.snowGravity.X = randomWind * 10;
-	}
-	else if (randomWind >= 25 && randomWind < 50)
-	{
-		UserDataStruct.snowGravity.X = randomWind * 30;
-	}
-	else if (randomWind >= 50 && randomWind < 75) 
-	{
-		UserDataStruct.snowGravity.X = randomWind * 50;
-	}
-	else
-	{
-		UserDataStruct.snowGravity.X = randomWind + 75;
-	}
-	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *UserDataStruct.snowGravity.ToString());
-	UE_LOG(LogTemp, Warning, TEXT("random wind:  %f"), randomWind);
+	UserDataStruct.snowGravity.X = randomWind * 10;
 }
 //--------------------------------------------------------------------------Communicate with volume(s)
 void UEUW_WeatherSelector::CommunicateWithVolume()

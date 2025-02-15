@@ -48,6 +48,7 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
 	_VolumeData.rainGravity = WeatherData.rainGravity;
+	
 	_VolumeData.snowSpawnRate = WeatherData.snowSpawnRate;
 	_VolumeData.snowGravity = WeatherData.snowGravity;
 	
@@ -81,8 +82,8 @@ void AWeatherVolume::WeatherTransition()
 
 void AWeatherVolume::SetNiagaraParameters()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
-	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
+	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *MyWeatherQueue[currentWeatherIndex].snowGravity.ToString());
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
@@ -101,12 +102,19 @@ void AWeatherVolume::SoftenTransition()
 	float nextRainSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].rainSpawnRate;
 	float adjustedRainSpawnRate = 0.0f;
 
+	float previousSnowSpawnRate = MyWeatherQueue[currentWeatherIndex].snowSpawnRate;
+	float nextSnowSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].snowSpawnRate;
+	float adjustedSnowSpawnRate = 0.0f;
+
 	adjustedRainSpawnRate = (previousRainSpawnRate + nextRainSpawnRate) / 2;
+	adjustedSnowSpawnRate = (previousSnowSpawnRate + nextSnowSpawnRate) / 2;
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", adjustedRainSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("old spawn: %f"),previousRainSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("next spawn: %f"),nextRainSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("adjustedspawnrate: %f"),adjustedRainSpawnRate);
+	_NS_SnowComponent->SetFloatParameter("SpawnRate", adjustedSnowSpawnRate);
+	
+	UE_LOG(LogTemp, Error, TEXT("old spawn: %f"),previousSnowSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("next spawn: %f"),nextSnowSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("adjustedspawnrate: %f"),adjustedSnowSpawnRate);
 }
 
 void AWeatherVolume::StartTransitionTimer()

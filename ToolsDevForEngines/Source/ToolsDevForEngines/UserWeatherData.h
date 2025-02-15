@@ -17,7 +17,7 @@ struct FUserWeatherData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector rainGravity = FVector(0, 0, -2000);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FVector snowGravity = FVector(0, 0, -750);
+	FVector snowGravity = FVector(0, 0, -2000);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float dayLength;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -25,5 +25,5 @@ struct FUserWeatherData
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float erraticismFactor;
 
-	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.1f), rainGravity(FVector(0, 0, -2000)), dayNightCycle(false), erraticismFactor(1.0f) {};
+	FUserWeatherData():rainSpawnRate(0.0f),snowSpawnRate(0.0f), dayLength(0.1f), rainGravity(FVector(0, 0, -2000)), snowGravity(FVector(0,0,-2000)), dayNightCycle(false), erraticismFactor(1.0f) {};
 };
