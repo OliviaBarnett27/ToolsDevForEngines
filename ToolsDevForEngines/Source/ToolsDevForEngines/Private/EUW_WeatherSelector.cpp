@@ -28,7 +28,6 @@ void UEUW_WeatherSelector::NativeConstruct()
 	Super::NativeConstruct();
 
 	UtilityTitle->SetText(FText::FromString("Weather Selector"));
-	//OnGenerateWeatherButtonClickedDelegate.AddDynamic(this, &UEUW_WeatherSelector::OnButtonCliked);
 	GenerateButton->MyButton->OnClicked.AddDynamic(this, &UEUW_WeatherSelector::OnButtonClicked);
 }
 //--------------------------------------------------------------------------Button clicked
@@ -43,6 +42,7 @@ void UEUW_WeatherSelector::OnButtonClicked()
 	
 	UserDataStruct.dayLength = UserDayLength;
 	UserDataStruct.dayNightCycle = UserDayNight;
+	UserDataStruct.erraticismFactor = UserErraticism;
 
 	CommunicateWithVolume();
 	
@@ -95,6 +95,7 @@ void UEUW_WeatherSelector::CalculateWeather()
 void UEUW_WeatherSelector::CalculateRainSpawnRate()
 {
 	float randomRain  = FMath::FRandRange(ClimateData->RainMin, ClimateData->RainMax);
+	UE_LOG(LogTemp, Warning, TEXT ("random rain: %f"), randomRain);
 	if (randomRain < 25)
 	{
 		UserDataStruct.rainSpawnRate = randomRain;
@@ -109,11 +110,11 @@ void UEUW_WeatherSelector::CalculateRainSpawnRate()
 	}
 	else
 	{
-		UserDataStruct.rainSpawnRate = randomRain * 150;
+		UserDataStruct.rainSpawnRate = randomRain * 100;
 	}
 	UE_LOG(LogTemp, Error, TEXT("spawn rate: %f"), UserDataStruct.rainSpawnRate)
 
-	UserDataStruct.rainSpawnRate = (volumeSizeCubed / UserDataStruct.rainSpawnRate) / 100;
+	UserDataStruct.rainSpawnRate *= volumeSizeCubed / 100000000;
 }
 //--------------------------------------------------------------------------Calculate rain gravity
 void UEUW_WeatherSelector::CalculateRainGravity()
@@ -200,7 +201,7 @@ void UEUW_WeatherSelector::CommunicateWithVolume()
 ;
 		FindVolumeSize(Volume);
 
-		for(int j = 0; j < 50; j++)
+		for(int j = 0; j < UserErraticism * 5; j++)
 		{
 			CalculateWeather();
 			Volume->SetUserWeatherData(UserDataStruct); //function to set values in volume's struct instance
@@ -287,8 +288,6 @@ void UEUW_WeatherSelector::SetPrecipitation()
 
 void UEUW_WeatherSelector::FindVolumeSize(AWeatherVolume* Volume)
 {
-	FBoxSphereBounds weatherBounds = Volume->GetBrushComponent()->Bounds;
-
 	FVector volumeSize = Volume->GetComponentsBoundingBox().GetSize();
 
 	volumeSizeCubed = volumeSize.X * volumeSize.Y * volumeSize.Z;

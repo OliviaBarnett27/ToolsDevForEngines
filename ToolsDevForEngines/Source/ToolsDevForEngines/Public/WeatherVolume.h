@@ -54,11 +54,21 @@ public:
 	void WeatherTransition();
 	UFUNCTION(BlueprintCallable)
 	void SetNiagaraParameters();
+	UFUNCTION()
+	void SoftenTransition();
+	UFUNCTION()
+	void StartTransitionTimer();
+	UFUNCTION()
+	void StartSoftenTimer();
+	UFUNCTION()
+	void TransitionManager();
 
 	//---------- variables
 	float currentWeatherIndex = 0;
 	FTimerHandle TransitionTimer;
-	FTimerHandle WeatherLerpTimer;
+	FTimerHandle SoftenTimer;
 	float rainSpawnRate = 0.0f;
 	FVector rainGravity = FVector::ZeroVector;
+	bool hasBeenSoftened;
 };
+

@@ -16,6 +16,10 @@ struct FUserWeatherData;
 #define TOOLSDEVFORENGINES_WeatherVolume_generated_h
 
 #define FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execTransitionManager); \
+	DECLARE_FUNCTION(execStartSoftenTimer); \
+	DECLARE_FUNCTION(execStartTransitionTimer); \
+	DECLARE_FUNCTION(execSoftenTransition); \
 	DECLARE_FUNCTION(execSetNiagaraParameters); \
 	DECLARE_FUNCTION(execWeatherTransition); \
 	DECLARE_FUNCTION(execSetUserWeatherData);

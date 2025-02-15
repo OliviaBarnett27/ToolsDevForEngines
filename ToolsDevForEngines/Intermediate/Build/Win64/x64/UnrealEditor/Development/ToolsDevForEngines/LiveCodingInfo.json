@@ -10,8 +10,6 @@
 			"Subsystem_WeatherSelector.gen.cpp.obj",
 			"ToolsDevForEnginesCharacter.gen.cpp.obj",
 			"ToolsDevForEnginesGameMode.gen.cpp.obj",
-			"UserWeatherData.gen.cpp.obj",
-			"WeatherVolume.gen.cpp.obj",
 			"W_ClimateWidget.gen.cpp.obj",
 			"W_DayLengthWidget.gen.cpp.obj",
 			"W_DayNightWidget.gen.cpp.obj",
@@ -26,7 +24,6 @@
 			"W_ClimateWidget.cpp.obj",
 			"W_DayLengthWidget.cpp.obj",
 			"W_DayNightWidget.cpp.obj",
-			"W_ErraticismWidget.cpp.obj",
 			"W_GenerateButton.cpp.obj",
 			"W_SeasonWidget.cpp.obj",
 			"ToolsDevForEngines.cpp.obj",
@@ -34,8 +31,11 @@
 			"ToolsDevForEnginesGameMode.cpp.obj",
 			"EUW_WeatherSelector.gen.cpp.obj",
 			"ToolsDevForEngines.init.gen.cpp.obj",
+			"UserWeatherData.gen.cpp.obj",
+			"WeatherVolume.gen.cpp.obj",
 			"EUW_WeatherSelector.cpp.obj",
-			"WeatherVolume.cpp.obj"
+			"WeatherVolume.cpp.obj",
+			"W_ErraticismWidget.cpp.obj"
 		]
 	}
 }

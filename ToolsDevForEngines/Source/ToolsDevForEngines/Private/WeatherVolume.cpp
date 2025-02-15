@@ -41,11 +41,7 @@ void AWeatherVolume::BeginPlay()
 	
 	SetNiagaraParameters(); //sets niagara parameters for the first array element
 
-	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
-	FTimerDelegate TransitionTimerDelegate;
-	TransitionTimerDelegate.BindUFunction(this, "WeatherTransition"); 
-	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TransitionTimerDelegate, 5, true);
-	//-----
+	TransitionManager();
 }
 
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
@@ -59,6 +55,8 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 	_DayNightComponent->enableDayNightCycle = _VolumeData.dayNightCycle;
 	_VolumeData.dayLength = WeatherData.dayLength;
 	_DayNightComponent->turnRate = _VolumeData.dayLength;
+
+	_VolumeData.erraticismFactor = WeatherData.erraticismFactor;
 	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
 }
@@ -71,14 +69,14 @@ void AWeatherVolume::WeatherTransition()
 
 	MyWeatherQueue.Add(tempWeatherData); //adds the removed struct to the back of the queue
 
-	currentWeatherIndex++; 
-
 	if (currentWeatherIndex >= MyWeatherQueue.Num())
 	{
 		currentWeatherIndex = 0; //resets the indexer once the end of the queue has been reached, so that the weather queue cycles
 	}
-	
-	SetNiagaraParameters(); 
+
+	SetNiagaraParameters();
+
+	StartTransitionTimer();
 }
 
 void AWeatherVolume::SetNiagaraParameters()
@@ -94,6 +92,49 @@ void AWeatherVolume::SetNiagaraParameters()
 
 	DynamicCloudMaterial->SetScalarParameterValue(FName("WeatherUVScale"), 1);
 }
+
+void AWeatherVolume::SoftenTransition()
+{
+	hasBeenSoftened = true;
+	
+	float previousRainSpawnRate = MyWeatherQueue[currentWeatherIndex].rainSpawnRate;
+	float nextRainSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].rainSpawnRate;
+	float adjustedRainSpawnRate = 0.0f;
+
+	adjustedRainSpawnRate = (previousRainSpawnRate + nextRainSpawnRate) / 2;
+	
+	_NS_RainComponent->SetFloatParameter("SpawnRate", adjustedRainSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("old spawn: %f"),previousRainSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("next spawn: %f"),nextRainSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("adjustedspawnrate: %f"),adjustedRainSpawnRate);
+}
+
+void AWeatherVolume::StartTransitionTimer()
+{
+	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
+	FTimerDelegate TransitionTimerDelegate;
+	TransitionTimerDelegate.BindUFunction(this, "WeatherTransition"); 
+	GetWorld()->GetTimerManager().SetTimer(TransitionTimer, TransitionTimerDelegate, 100 - (_VolumeData.erraticismFactor), false);
+
+	StartSoftenTimer();
+	//-----
+}
+
+void AWeatherVolume::StartSoftenTimer()
+{
+	//-----timer allows for softening of weather between weather states
+	FTimerDelegate SoftenTimerDelegate;
+	SoftenTimerDelegate.BindUFunction(this, "SoftenTransition"); 
+	GetWorld()->GetTimerManager().SetTimer(SoftenTimer, SoftenTimerDelegate, (_VolumeData.erraticismFactor / 100) * 5, false);
+
+	SoftenTimerDelegate.BindUFunction(this, "StartTransitionTimer");
+}
+
+void AWeatherVolume::TransitionManager()
+{
+	StartTransitionTimer();
+}
+
 
 
 
