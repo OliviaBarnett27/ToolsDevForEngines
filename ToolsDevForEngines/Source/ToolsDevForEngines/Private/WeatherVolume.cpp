@@ -27,9 +27,11 @@ AWeatherVolume::AWeatherVolume()
 	
 	DynamicCloudMaterial = UMaterialInstanceDynamic::Create(_CloudsComponent->CloudMaterial, this);
 	_CloudsComponent->_VolumetricCloudComponent->SetMaterial(DynamicCloudMaterial);
-}
 
-// Called when the game starts or when spawned
+	_NS_RainComponent->SetVisibility(false);
+	_NS_SnowComponent->SetVisibility(false);
+}
+//--------------------------------------------------------------------------Begin play
 void AWeatherVolume::BeginPlay()
 {
 	Super::BeginPlay();
@@ -41,9 +43,9 @@ void AWeatherVolume::BeginPlay()
 	
 	SetNiagaraParameters(); //sets niagara parameters for the first array element
 
-	TransitionManager();
+	ManageTransitions();
 }
-
+//--------------------------------------------------------------------------Set User Weather Data: called from EUW_WeatherSelector and sets values in _VolumeData based on user inputs and weather calculations
 void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 {
 	_VolumeData.rainSpawnRate = WeatherData.rainSpawnRate;
@@ -61,7 +63,7 @@ void AWeatherVolume::SetUserWeatherData(FUserWeatherData WeatherData)
 	
 	MyWeatherQueue.Add(_VolumeData); //adds struct to queue array
 }
-
+//--------------------------------------------------------------------------Weather transitions: handles weather queue functionality
 void AWeatherVolume::WeatherTransition()
 {
 	FUserWeatherData tempWeatherData =  MyWeatherQueue[currentWeatherIndex]; //used to hold the current struct so that it can be re-added to the array
@@ -79,11 +81,11 @@ void AWeatherVolume::WeatherTransition()
 
 	StartTransitionTimer();
 }
-
+//--------------------------------------------------------------------------Set Niagara parameters
 void AWeatherVolume::SetNiagaraParameters()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
-	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *MyWeatherQueue[currentWeatherIndex].snowGravity.ToString());
+	UE_LOG(LogTemp, Warning, TEXT("Spawn rate: %f"), MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
+	UE_LOG(LogTemp, Warning, TEXT("gravity:  %s"), *MyWeatherQueue[currentWeatherIndex].rainGravity.ToString());
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].rainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", MyWeatherQueue[currentWeatherIndex].snowSpawnRate);
@@ -92,31 +94,34 @@ void AWeatherVolume::SetNiagaraParameters()
 	_NS_SnowComponent->SetVectorParameter("SnowGravity", MyWeatherQueue[currentWeatherIndex].snowGravity);
 
 	DynamicCloudMaterial->SetScalarParameterValue(FName("WeatherUVScale"), 1);
-}
 
+	_NS_RainComponent->SetVisibility(true);
+	_NS_SnowComponent->SetVisibility(true);
+}
+//--------------------------------------------------------------------------Soften transition: finds the midpoint of the previous precipitation spawn rate and the next to make the transition appear less harsh
 void AWeatherVolume::SoftenTransition()
 {
 	hasBeenSoftened = true;
 	
-	float previousRainSpawnRate = MyWeatherQueue[currentWeatherIndex].rainSpawnRate;
-	float nextRainSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].rainSpawnRate;
+	float previousRainSpawnRate = MyWeatherQueue[currentWeatherIndex].rainSpawnRate; //the current weather
+	float nextRainSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].rainSpawnRate; //the next weather
 	float adjustedRainSpawnRate = 0.0f;
 
 	float previousSnowSpawnRate = MyWeatherQueue[currentWeatherIndex].snowSpawnRate;
 	float nextSnowSpawnRate = MyWeatherQueue[currentWeatherIndex+ 1].snowSpawnRate;
 	float adjustedSnowSpawnRate = 0.0f;
 
-	adjustedRainSpawnRate = (previousRainSpawnRate + nextRainSpawnRate) / 2;
+	adjustedRainSpawnRate = (previousRainSpawnRate + nextRainSpawnRate) / 2; //midpoint
 	adjustedSnowSpawnRate = (previousSnowSpawnRate + nextSnowSpawnRate) / 2;
 	
 	_NS_RainComponent->SetFloatParameter("SpawnRate", adjustedRainSpawnRate);
 	_NS_SnowComponent->SetFloatParameter("SpawnRate", adjustedSnowSpawnRate);
 	
-	UE_LOG(LogTemp, Error, TEXT("old spawn: %f"),previousSnowSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("next spawn: %f"),nextSnowSpawnRate);
-	UE_LOG(LogTemp, Error, TEXT("adjustedspawnrate: %f"),adjustedSnowSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("old spawn: %f"),previousRainSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("next spawn: %f"),nextRainSpawnRate);
+	UE_LOG(LogTemp, Error, TEXT("adjustedspawnrate: %f"),adjustedRainSpawnRate);
 }
-
+//--------------------------------------------------------------------------Start transition timer: determines how long a weather should be active before switching to the next
 void AWeatherVolume::StartTransitionTimer()
 {
 	//-----timer allows for transitioning between weather states. when it loops it will move to the next struct in the array
@@ -127,18 +132,20 @@ void AWeatherVolume::StartTransitionTimer()
 	StartSoftenTimer();
 	//-----
 }
-
+//--------------------------------------------------------------------------Start soften timer: determines length of softening period
 void AWeatherVolume::StartSoftenTimer()
 {
+	//only the end of the weather's active period should be softened, so the timer length is set to 5% of the transition timer
+	float length = ((100 - _VolumeData.erraticismFactor) / 100) * 5;
 	//-----timer allows for softening of weather between weather states
 	FTimerDelegate SoftenTimerDelegate;
 	SoftenTimerDelegate.BindUFunction(this, "SoftenTransition"); 
-	GetWorld()->GetTimerManager().SetTimer(SoftenTimer, SoftenTimerDelegate, (_VolumeData.erraticismFactor / 100) * 5, false);
+	GetWorld()->GetTimerManager().SetTimer(SoftenTimer, SoftenTimerDelegate, _VolumeData.erraticismFactor - length, false);
 
 	SoftenTimerDelegate.BindUFunction(this, "StartTransitionTimer");
 }
-
-void AWeatherVolume::TransitionManager()
+//--------------------------------------------------------------------------Manage transitions: handles timer activation. prevents recursion
+void AWeatherVolume::ManageTransitions()
 {
 	StartTransitionTimer();
 }

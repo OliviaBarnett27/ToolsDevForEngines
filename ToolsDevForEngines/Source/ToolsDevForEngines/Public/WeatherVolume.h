@@ -61,7 +61,7 @@ public:
 	UFUNCTION()
 	void StartSoftenTimer();
 	UFUNCTION()
-	void TransitionManager();
+	void ManageTransitions();
 
 	//---------- variables
 	float currentWeatherIndex = 0;

@@ -34,8 +34,8 @@ public:
 	bool UserDayNight;
 	float UserErraticism;
 	uint8* RowPointer;
-	bool enableRain;
-	bool enableSnow;
+	bool enableRain = false;
+	bool enableSnow = false;
 	float volumeSizeCubed;
 
 	//-----Widgets

@@ -11,9 +11,9 @@ struct FUserWeatherData
 	GENERATED_BODY()
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float rainSpawnRate;
+	float rainSpawnRate = 0.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float snowSpawnRate;
+	float snowSpawnRate = 0.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FVector rainGravity = FVector(0, 0, -2000);
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

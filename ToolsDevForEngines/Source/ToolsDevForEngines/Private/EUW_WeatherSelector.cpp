@@ -39,7 +39,8 @@ void UEUW_WeatherSelector::OnButtonClicked()
 	if (UserSeason == NAME_None) {return;}
 	
 	ReadDataTable();
-	
+
+	//these will not change in calculations
 	UserDataStruct.dayLength = UserDayLength;
 	UserDataStruct.dayNightCycle = UserDayNight;
 	UserDataStruct.erraticismFactor = UserErraticism;
@@ -57,22 +58,22 @@ void UEUW_WeatherSelector::SetUserInputs()
 	UserDayLength = DayLengthWidget->MySpinBox->GetValue();
 	UserErraticism = ErraticismWidget->MySpinBox->GetValue();
 }
-//--------------------------------------------------------------------------Read Data Table
+//--------------------------------------------------------------------------Read Data Table: gets the correct data for the user's selections
 void UEUW_WeatherSelector::ReadDataTable()
 {
 	if (!WeatherDataTable) {return;}
 	
-	FSeason* SeasonData = WeatherDataTable->FindRow<FSeason>(UserSeason, TEXT("Find Season Row"));
+	FSeason* SeasonData = WeatherDataTable->FindRow<FSeason>(UserSeason, TEXT("Find Season Row")); //gets the struct from the row with the same name as the season the user selected
 	
 	if (!SeasonData) {return;}
 
-	ClimateData = SeasonData->ClimateMap.Find(UserClimate);
+	ClimateData = SeasonData->ClimateMap.Find(UserClimate); //finds the map within the season struct with the same name as the climate the user selected
 
 	if (!ClimateData) {return;}
 
 	UE_LOG(LogTemp, Display, TEXT("RainMin: %f, MainMax: %f"), ClimateData->RainMin, ClimateData->RainMax);
 }
-//--------------------------------------------------------------------------Calculate weather features 
+//--------------------------------------------------------------------------Calculate weather features
 void UEUW_WeatherSelector::CalculateWeather()
 {
 	SetPrecipitation();
@@ -82,14 +83,14 @@ void UEUW_WeatherSelector::CalculateWeather()
 		CalculateRainSpawnRate();
 		CalculateRainGravity();
 	}
-	else { UserDataStruct.rainSpawnRate = 0.0f;}
+	else { UserDataStruct.rainSpawnRate = 0.0f;} //if rain has been to decides to not be active, it will be set to zero
 
 	if (enableSnow)
 	{
 		CalculateSnowSpawnRate();
 		CalculateSnowGravity();
 	}
-	else { UserDataStruct.snowSpawnRate = 0.0f;}
+	else { UserDataStruct.snowSpawnRate = 0.0f;} //if snow has been to decides to not be active, it will be set to zero
 }
 //--------------------------------------------------------------------------Calculate rain spawn rate
 void UEUW_WeatherSelector::CalculateRainSpawnRate()
@@ -152,7 +153,7 @@ void UEUW_WeatherSelector::CalculateSnowGravity()
 	float randomWind  = FMath::FRandRange(ClimateData->WindMin, ClimateData->WindMax);
 	UserDataStruct.snowGravity.X = randomWind * 10;
 }
-//--------------------------------------------------------------------------Communicate with volume(s)
+//--------------------------------------------------------------------------Communicate with volume(s): finds weather volumes in the world and passes them the calculated weather
 void UEUW_WeatherSelector::CommunicateWithVolume()
 {
 	TArray<AVolume*> PlacedWeatherVolumes = GenerateButton->FindVolumeByClass(GetWorld(), AWeatherVolume::StaticClass());
@@ -178,9 +179,9 @@ void UEUW_WeatherSelector::CommunicateWithVolume()
 		}
 	}
 }
-//--------------------------------------------------------------------------Set precipitation
+//--------------------------------------------------------------------------Set precipitation: determines whether snow or rain should be active. if one is active, the other cannot be.
 void UEUW_WeatherSelector::SetPrecipitation()
-{ 
+{
 	int random;
 	
 	if (ClimateData->RainMax <= 0.0f) {enableRain = false;}
@@ -255,7 +256,7 @@ void UEUW_WeatherSelector::SetPrecipitation()
 		}
 	}
 }
-
+//--------------------------------------------------------------------------Find volume size
 void UEUW_WeatherSelector::FindVolumeSize(AWeatherVolume* Volume)
 {
 	FVector volumeSize = Volume->GetComponentsBoundingBox().GetSize();
