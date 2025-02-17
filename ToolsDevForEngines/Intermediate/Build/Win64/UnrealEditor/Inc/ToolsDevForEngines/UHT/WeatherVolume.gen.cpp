@@ -22,6 +22,35 @@ TOOLSDEVFORENGINES_API UScriptStruct* Z_Construct_UScriptStruct_FUserWeatherData
 UPackage* Z_Construct_UPackage__Script_ToolsDevForEngines();
 // End Cross Module References
 
+// Begin Class AWeatherVolume Function ManageTransitions
+struct Z_Construct_UFunction_AWeatherVolume_ManageTransitions_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeatherVolume_ManageTransitions_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeatherVolume, nullptr, "ManageTransitions", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_ManageTransitions_Statics::Function_MetaDataParams), Z_Construct_UFunction_AWeatherVolume_ManageTransitions_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_AWeatherVolume_ManageTransitions()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeatherVolume_ManageTransitions_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(AWeatherVolume::execManageTransitions)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->ManageTransitions();
+	P_NATIVE_END;
+}
+// End Class AWeatherVolume Function ManageTransitions
+
 // Begin Class AWeatherVolume Function SetNiagaraParameters
 struct Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters_Statics
 {
@@ -187,35 +216,6 @@ DEFINE_FUNCTION(AWeatherVolume::execStartTransitionTimer)
 }
 // End Class AWeatherVolume Function StartTransitionTimer
 
-// Begin Class AWeatherVolume Function TransitionManager
-struct Z_Construct_UFunction_AWeatherVolume_TransitionManager_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Public/WeatherVolume.h" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AWeatherVolume_TransitionManager_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AWeatherVolume, nullptr, "TransitionManager", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AWeatherVolume_TransitionManager_Statics::Function_MetaDataParams), Z_Construct_UFunction_AWeatherVolume_TransitionManager_Statics::Function_MetaDataParams) };
-UFunction* Z_Construct_UFunction_AWeatherVolume_TransitionManager()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AWeatherVolume_TransitionManager_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(AWeatherVolume::execTransitionManager)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	P_THIS->TransitionManager();
-	P_NATIVE_END;
-}
-// End Class AWeatherVolume Function TransitionManager
-
 // Begin Class AWeatherVolume Function WeatherTransition
 struct Z_Construct_UFunction_AWeatherVolume_WeatherTransition_Statics
 {
@@ -250,12 +250,12 @@ void AWeatherVolume::StaticRegisterNativesAWeatherVolume()
 {
 	UClass* Class = AWeatherVolume::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "ManageTransitions", &AWeatherVolume::execManageTransitions },
 		{ "SetNiagaraParameters", &AWeatherVolume::execSetNiagaraParameters },
 		{ "SetUserWeatherData", &AWeatherVolume::execSetUserWeatherData },
 		{ "SoftenTransition", &AWeatherVolume::execSoftenTransition },
 		{ "StartSoftenTimer", &AWeatherVolume::execStartSoftenTimer },
 		{ "StartTransitionTimer", &AWeatherVolume::execStartTransitionTimer },
-		{ "TransitionManager", &AWeatherVolume::execTransitionManager },
 		{ "WeatherTransition", &AWeatherVolume::execWeatherTransition },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -324,12 +324,12 @@ struct Z_Construct_UClass_AWeatherVolume_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_AWeatherVolume_ManageTransitions, "ManageTransitions" }, // 3709294901
 		{ &Z_Construct_UFunction_AWeatherVolume_SetNiagaraParameters, "SetNiagaraParameters" }, // 3636446522
 		{ &Z_Construct_UFunction_AWeatherVolume_SetUserWeatherData, "SetUserWeatherData" }, // 3045260681
 		{ &Z_Construct_UFunction_AWeatherVolume_SoftenTransition, "SoftenTransition" }, // 1288529774
 		{ &Z_Construct_UFunction_AWeatherVolume_StartSoftenTimer, "StartSoftenTimer" }, // 1743015352
 		{ &Z_Construct_UFunction_AWeatherVolume_StartTransitionTimer, "StartTransitionTimer" }, // 3979493534
-		{ &Z_Construct_UFunction_AWeatherVolume_TransitionManager, "TransitionManager" }, // 2901067911
 		{ &Z_Construct_UFunction_AWeatherVolume_WeatherTransition, "WeatherTransition" }, // 1865933648
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -397,10 +397,10 @@ AWeatherVolume::~AWeatherVolume() {}
 struct Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 1731787606U) },
+		{ Z_Construct_UClass_AWeatherVolume, AWeatherVolume::StaticClass, TEXT("AWeatherVolume"), &Z_Registration_Info_UClass_AWeatherVolume, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AWeatherVolume), 614757111U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_4186770903(TEXT("/Script/ToolsDevForEngines"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_3758284189(TEXT("/Script/ToolsDevForEngines"),
 	Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Users_b013728n_Documents_GitHub_ToolsDevForEngines_ToolsDevForEngines_Source_ToolsDevForEngines_Public_WeatherVolume_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
